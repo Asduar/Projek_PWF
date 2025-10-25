@@ -1,0 +1,75 @@
+/* ============================== */
+/* [SPESIFIK] Styling Halaman Prestasi */
+/* ============================== */
+
+/* Judul Kategori (Daesang, Music Show) */
+.prestasi-heading {
+    color: #ff00ff; /* Neon Magenta */
+    font-weight: 700;
+    border-bottom: 2px solid #ff00ff; /* Garis bawah neon */
+    padding-bottom: 10px;
+    margin-bottom: 1.5rem; /* Jarak ke list */
+    margin-top: 1rem;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+/* Styling List Group */
+.prestasi-list-group .list-group-item {
+    /* Background gelap, samakan dengan card */
+    background-color: #1a1a2e; 
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    padding: 1.25rem;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efek hover pada list item */
+.prestasi-list-group .list-group-item:hover {
+    background-color: rgba(255, 0, 255, 0.05); /* Latar magenta transparan */
+    color: #ff00ff; /* Teks jadi neon */
+    transform: scale(1.02); /* Sedikit membesar */
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+}
+
+/* Teks kecil (Awarding body/date) */
+.prestasi-list-group .list-group-item small {
+    color: #a0a0a0;
+    transition: color 0.2s ease-in-out;
+}
+
+.prestasi-list-group .list-group-item:hover small {
+    color: #ff00ff;
+}
+
+/* Judul (Nama Penghargaan) */
+.prestasi-list-group .list-group-item h5 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+/* Ikon piala (sudah ada di style.css, tapi kita pertegas) */
+.text-neon-magenta {
+    color: #ff00ff;
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+/* ============================== */
+/* [BARU] Styling Sub-Judul Kategori */
+/* ============================== */
+
+.prestasi-subheading {
+    color: #ffffff; /* Putih */
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-left: 4px solid #ff00ff; /* Garis neon di kiri */
+    padding-left: 10px;
+    margin-top: 2.5rem; /* Jarak atas */
+    margin-bottom: 1rem; /* Jarak bawah ke list */
+}
+
+/* Penyesuaian list-group-item agar lebih simpel */
+.prestasi-list-group .list-group-item h5 {
+    display: inline; /* Membuat judul dan teks kecil segaris */
+    margin-right: 10px;
+}
