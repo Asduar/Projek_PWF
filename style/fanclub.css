@@ -1,0 +1,61 @@
+/* ============================== */
+/* [BARU] Styling Accordion Fanclub */
+/* ============================== */
+
+/* Warna ikon di card keuntungan */
+.text-neon-magenta {
+    color: #ff00ff;
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.accordion-custom .accordion-item {
+    /* Background gelap seperti card */
+    background-color: #1a1a2e; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px; /* Memberi jarak antar item */
+    border-radius: 8px;
+    overflow: hidden; /* Agar border-radius rapi */
+}
+
+/* Mengatur tombol header accordion */
+.accordion-custom .accordion-button {
+    background-color: #1a1a2e;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    /* Menghilangkan bayangan saat diklik */
+    box-shadow: none; 
+}
+
+/* Mengatur warna tombol saat tidak dicollapse (terbuka) */
+.accordion-custom .accordion-button:not(.collapsed) {
+    background-color: rgba(255, 0, 255, 0.1); /* Latar magenta transparan */
+    color: #ff00ff; /* Teks neon */
+    box-shadow: none;
+}
+
+/* Mengatur ikon panah (atas/bawah) */
+/* Bootstrap menggunakan filter, jadi kita harus override */
+.accordion-custom .accordion-button::after {
+    /* Menggunakan ikon panah Bootstrap (putih) */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-custom .accordion-button:not(.collapsed)::after {
+    /* Mengganti ikon panah menjadi neon saat terbuka */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ff00ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3C/svg%3E");
+    transform: rotate(-180deg);
+}
+
+/* Mengatur isi (body) accordion */
+.accordion-custom .accordion-body {
+    color: #e0e0e0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mengatur list <ul> dan <ol> di dalam accordion */
+.accordion-custom .accordion-body ul,
+.accordion-custom .accordion-body ol {
+    padding-left: 1.2rem; /* Atur jarak list */
+    margin-top: 10px;
+}
