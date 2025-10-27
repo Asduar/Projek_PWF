@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0c051b;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+
+.header {
+  background-color: #090016;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 3px 8px rgba(255, 0, 214, 0.2);
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.auth-buttons button {
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sign-in {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.sign-in:hover {
+  background-color: #fff;
+  color: #0c051b;
+}
+
+.register {
+  background-color: #ff00d6;
+  color: #fff;
+}
+
+.register:hover {
+  box-shadow: 0 0 15px #ff00d6, 0 0 25px #ff00d6;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 80px;
+  background: linear-gradient(180deg, #15092d 0%, #0c051b 100%);
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #cfcfcf;
+  font-size: 16px;
+}
+
+/* ===== DISKOGRAFI ===== */
+.diskografi {
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.diskografi h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ff00d6;
+}
+
+.diskografi-category {
+  margin-top: 40px;
+}
+
+.diskografi-category h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  border-bottom: 2px solid #ff00d6;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.album-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.album-card {
+  background-color: #1b1530;
+  border-radius: 12px;
+  width: 230px;
+  box-shadow: 0 0 15px rgba(255, 0, 214, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.album-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255, 0, 214, 0.4);
+}
+
+.album-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.album-card h4 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.album-card p {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  color: #888;
+  padding: 25px;
+  background-color: #0a0316;
+  font-size: 13px;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 25px;
+  }
+  .album-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
