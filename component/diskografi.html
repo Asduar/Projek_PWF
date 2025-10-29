@@ -1,439 +1,235 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Diskografi aespa — Spotify-like</title>
-  <link rel="stylesheet" href="aespa.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYKROS - Diskografi aespa</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html,body { height: 100%; }
+    /* Tema gelap ala Spotify */
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg,#070708 0%, #0f0716 100%);
-      color: #eaeaea;
-      -webkit-font-smoothing:antialiased;
-      padding: 28px;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
     }
 
-    
-    .app {
-      max-width: 1200px;
-      margin: 0 auto;
+    /* Header */
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 40px;
+      font-weight: 700;
+    }
+
+    header p {
+      color: #b3b3b3;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .filter-bar button {
+      background-color: #1f1f1f;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .filter-bar button.active {
+      background-color: #fff;
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* Grid album */
+    .album-container {
       display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 28px;
-      align-items: start;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 25px;
+      padding: 40px 50px 80px;
     }
 
-    
-    .sidebar {
-      background: rgba(255,255,255,0.03);
-      border-radius: 14px;
-      padding: 18px;
-      height: calc(100vh - 56px);
-      overflow: auto;
-      border: 1px solid rgba(255,255,255,0.04);
+    .album-card {
+      background-color: #121212;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .sidebar h2 {
-      font-size: 20px;
-      margin-bottom: 12px;
+    .album-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .album-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .album-info {
+      padding: 10px;
+    }
+
+    .album-info h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .album-info a {
+      text-decoration: none;
       color: #fff;
     }
 
-    .album-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
+    .album-info a:hover {
+      text-decoration: underline;
     }
 
-    .album-item {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      padding: 8px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background .16s, transform .12s;
-    }
-    .album-item:hover { background: rgba(255,255,255,0.02); transform: translateY(-4px); }
-
-    .album-thumb {
-      width: 64px;
-      height: 64px;
-      border-radius: 6px;
-      overflow: hidden;
-      flex: 0 0 64px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-    }
-    .album-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .album-meta {
-      min-width: 0;
-    }
-    .album-meta .title { font-weight: 600; font-size: 14px; color: #fff; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
-    .album-meta .sub { font-size: 12px; color: #bfb3d6; margin-top: 4px; }
-
-    /* Right column: album detail (Spotify-like) */
-    .detail {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius: 14px;
-      padding: 28px;
-      min-height: calc(100vh - 56px);
-      overflow: auto;
-      border: 1px solid rgba(255,255,255,0.04);
+    .album-info p {
+      color: #b3b3b3;
+      font-size: 13px;
+      margin: 0;
     }
 
-    .detail-empty {
-      display: grid;
-      place-items: center;
-      height: 100%;
-      color: #bdb7d8;
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #aaa;
+      font-size: 13px;
+      padding: 20px 0 30px;
+      border-top: 1px solid #1a1a1a;
+      background-color: #000;
     }
-
-    .detail-top {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      margin-bottom: 22px;
-    }
-
-    .cover-large {
-      width: 300px;
-      height: 300px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-      flex-shrink: 0;
-    }
-    .cover-large img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .detail-info {
-      flex: 1;
-      min-width: 0;
-    }
-    .badge { display:inline-block; padding:6px 10px; border-radius:20px; background: rgba(255,0,214,0.14); color:#ff88e6; font-weight:600; font-size:12px; margin-bottom:10px; }
-    .album-title { font-size: 34px; font-weight:700; margin-bottom:8px; color: #fff; }
-    .album-sub { color:#cfc6dd; margin-bottom: 18px; font-size: 14px; }
-    .album-actions { display:flex; gap:10px; align-items:center; margin-bottom:10px; }
-    .btn {
-      display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius: 8px; border: none; cursor:pointer;
-      font-weight:600; font-size:14px;
-    }
-    .btn-play { background: #ff00d6; color: #fff; box-shadow: 0 8px 30px rgba(255,0,214,0.18); }
-    .btn-secondary { background: transparent; color:#d6cfe6; border:1px solid rgba(255,255,255,0.04); }
-
-    /* Tracklist */
-    .tracklist {
-      margin-top: 18px;
-      background: rgba(255,255,255,0.01);
-      border-radius: 10px;
-      padding: 12px;
-    }
-    .track {
-      display: grid;
-      grid-template-columns: 44px 1fr 80px;
-      gap: 12px;
-      align-items: center;
-      padding:10px 12px;
-      border-radius:8px;
-    }
-    .track + .track { margin-top:6px; }
-    .track .num { color:#c9c2de; text-align:center; font-weight:600; }
-    .track .tmeta .tname { color:#fff; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%; }
-    .track .tmeta .tfeat { color:#b8aee0; font-size:13px; margin-top:4px; }
-    .track .dur { color:#bcb0d6; text-align:right; font-size:13px; }
-
-    /* small screens */
-    @media (max-width: 980px) {
-      .app { grid-template-columns: 1fr; }
-      .sidebar { height: auto; }
-      .detail { min-height: auto; }
-      .cover-large { width: 180px; height: 180px; }
-    }
-
-    /* scrollbars (subtle) */
-    .sidebar::-webkit-scrollbar, .detail::-webkit-scrollbar { width: 8px; height:8px; }
-    .sidebar::-webkit-scrollbar-thumb, .detail::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.03); border-radius: 8px; }
   </style>
 </head>
+
 <body>
-  <div class="app">
-    <!-- LEFT: ALBUM LIST -->
-    <aside class="sidebar" aria-label="Daftar album">
-      <h2>Diskografi aespa — (terbaru → debut)</h2>
-      <div class="album-grid" id="albumGrid">
-        <!-- Album items injected by JS -->
+  <nav class="navbar navbar-dark bg-black sticky-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold mx-auto" href="../index.html">MYKROS</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Diskografi</h1>
+    <p>Jelajahi semua rilis resmi dari aespa.</p>
+
+    <div class="filter-bar">
+      <button class="active">Album</button>
+    </div>
+  </header>
+
+  <main class="album-container">
+    <div class="album-card">
+      <img src="../asset/1275x1275bb-60.webp" alt="Rich Man Remixes">
+      <div class="album-info">
+        <h3><a href="../component/album1.html">Rich Man (Remixes)</a></h3>
+        <p>Latest Release • EP • 2025</p>
       </div>
-    </aside>
+    </div>
 
-    <!-- RIGHT: DETAIL VIEW -->
-    <section class="detail" id="detail">
-      <div class="detail-empty" id="detailEmpty">
-        <div>
-          <h3 style="font-size:20px;margin-bottom:8px;color:#fff">Pilih album</h3>
-          <p style="color:#bfb3d6">Klik salah satu album di kiri untuk melihat detail (cover, info, dan tracklist).</p>
-        </div>
+    <div class="album-card">
+      <img src="../asset/dang.jpg" alt="Rich Man">
+      <div class="album-info">
+        <h3><a href="../component/album2.html">Rich Man - The 6th Mini Album</a></h3>
+        <p>2025 • EP</p>
       </div>
+    </div>
 
-      <!-- filled dynamically -->
-      <div id="detailContent" style="display:none">
-        <div class="detail-top">
-          <div class="cover-large" id="detailCover"><img src="" alt="cover"></div>
-          <div class="detail-info">
-            <div class="badge" id="detailType">MINI ALBUM</div>
-            <div class="album-title" id="detailTitle">Rich Man</div>
-            <div class="album-sub" id="detailSub">aespa • 2025 • 6 lagu</div>
-
-            <div class="album-actions">
-              <button class="btn btn-play" id="playBtn">▶ Play</button>
-              <button class="btn btn-secondary" id="saveBtn">+ Simpan</button>
-              <button class="btn btn-secondary" id="openSpotify" style="margin-left:auto">Open on Spotify</button>
-            </div>
-
-            <div style="color:#cfc6dd;font-size:14px" id="detailDesc">
-              Deskripsi singkat album atau catatan rilis (opsional).
-            </div>
-          </div>
-        </div>
-
-        <div class="tracklist" id="tracklistArea" aria-live="polite">
-          <!-- track rows -->
-        </div>
+    <div class="album-card">
+      <img src="../asset/dirty work.jpg" alt="Dirty Work">
+      <div class="album-info">
+        <h3><a href="../component/album3.html">Dirty Work - The Single Album</a></h3>
+        <p>2025 • EP</p>
       </div>
-    </section>
-  </div>
+    </div>
 
-  <script>
-    
-    const albums = [
-      {
-        id: 'richman',
-        title: 'Rich Man',
-        type: 'Mini Album',
-        year: 2025,
-        cover: 'https://i.scdn.co/image/ab67616d0000b273f26e3693011a75c41a1d9697', 
-        trackCount: 6,
-        
-        tracks: [
-          {name: 'Rich Man', dur: '3:28'},
-          {name: 'Supernova', dur: '3:10'},
-          {name: 'Licorice', dur: '3:05'},
-          {name: 'Bahama', dur: '3:18'},
-          {name: 'Hot Mess', dur: '3:09'},
-          {name: 'Sun and Moon', dur: '3:04'}
-        ]
-      },
-      {
-        id: 'dirtywork',
-        title: 'Dirty Work',
-        type: 'Single',
-        year: 2025,
-        cover: 'https://i.scdn.co/image/ab67616d0000b273bf35cc79c5b22b1c19065272',
-        trackCount: 1,
-        tracks: [{name: 'Dirty Work', dur:'3:21'}]
-      },
-      {
-        id: 'darkarts',
-        title: 'Dark Arts',
-        type: 'Single',
-        year: 2025,
-        cover: 'https://i.scdn.co/image/ab67616d0000b2738d13338f8a3dd6c7392881b7',
-        trackCount: 1,
-        tracks: [{name: 'Dark Arts', dur:'3:07'}]
-      },
-      {
-        id: 'armageddon',
-        title: 'Armageddon',
-        type: 'Album (1st)',
-        year: 2024,
-        cover: '',
-        trackCount: 12,
-        tracks: [
-          {name: 'Rich Man', dur: '3:28'},
-          {name: 'Supernova', dur: '3:10'},
-          {name: 'Licorice', dur: '3:05'},
-          {name: 'Bahama', dur: '3:18'},
-          {name: 'Hot Mess', dur: '3:09'},
-          {name: 'Sun and Moon', dur: '3:04'}
-        ] 
-      },
-      {
-        id: 'whiplash',
-        title: 'Whiplash',
-        type: 'Mini Album',
-        year: 2024,
-        cover: 'https://i.scdn.co/image/ab67616d0000b273b0e2308a34fe1188daa24d76',
-        spotify: '',
-        trackCount: 5,
-        tracks: []
-      },
-      {
-        id: 'synk',
-        title: 'Synk: Parallel Line',
-        type: 'Single',
-        year: 2024,
-        cover: 'https://upload.wikimedia.org/wikipedia/en/0/0b/Aespa_-_Synk_Parallel_Line.jpg',
-        spotify: '',
-        trackCount: 1,
-        tracks: [{name: 'Synk: Parallel Line', dur:'3:12'}]
-      },
-      {
-        id: 'drama',
-        title: 'Drama',
-        type: 'Mini Album',
-        year: 2023,
-        cover: 'https://upload.wikimedia.org/wikipedia/en/3/30/Aespa_-_Drama.png',
-        spotify: '',
-        trackCount: 5,
-        tracks: []
-      },
-      {
-        id: 'myworld',
-        title: 'My World',
-        type: 'Mini Album',
-        year: 2023,
-        cover: 'https://upload.wikimedia.org/wikipedia/en/f/f7/Aespa_-_My_World.png',
-        spotify: '',
-        trackCount: 7,
-        tracks: []
-      },
-      {
-        id: 'girls',
-        title: 'Girls',
-        type: 'Mini Album',
-        year: 2022,
-        cover: 'https://upload.wikimedia.org/wikipedia/en/f/fc/Aespa_-_Girls.png',
-        spotify: '',
-        trackCount: 6,
-        tracks: []
-      },
-      {
-        id: 'savage',
-        title: 'Savage',
-        type: 'Mini Album',
-        year: 2021,
-        cover: 'https://upload.wikimedia.org/wikipedia/en/4/4e/Aespa_-_Savage.png',
-        spotify: '',
-        trackCount: 6,
-        tracks: []
-      },
-      {
-        id: 'nextlevel',
-        title: 'Next Level',
-        type: 'Single',
-        year: 2021,
-        cover: 'https://upload.wikimedia.org/wikipedia/en/3/3b/Aespa_-_Next_Level.png',
-        spotify: '',
-        trackCount: 1,
-        tracks: [{name:'Next Level', dur:'3:22'}]
-      },
-      {
-        id: 'forever',
-        title: 'Forever',
-        type: 'Single',
-        year: 2021,
-        cover: 'https://upload.wikimedia.org/wikipedia/en/f/f4/Aespa_-_Forever.png',
-        spotify: '',
-        trackCount: 1,
-        tracks: [{name:'Forever', dur:'3:30'}]
-      },
-      {
-        id: 'blackmamba',
-        title: 'Black Mamba',
-        type: 'Single (Debut)',
-        year: 2020,
-        cover: 'https://upload.wikimedia.org/wikipedia/en/f/f9/Aespa_-_Black_Mamba.png',
-        spotify: '',
-        trackCount: 1,
-        tracks: [{name:'Black Mamba', dur:'3:24'}]
-      }
-    ];
+    <div class="album-card">
+      <img src="../asset/whiplash.jpg" alt="Whiplash">
+      <div class="album-info">
+        <h3><a href="../component/album4.html">Whiplash - The 5th Mini Album</a></h3>
+        <p>2025 • EP</p>
+      </div>
+    </div>
 
-    // Render album list
-    const grid = document.getElementById('albumGrid');
-    albums.forEach((a, idx) => {
-      const item = document.createElement('button');
-      item.className = 'album-item';
-      item.type = 'button';
-      item.dataset.album = a.id;
-      item.innerHTML = `
-        <div class="album-thumb"><img src="${a.cover}" alt="${a.title} cover"></div>
-        <div class="album-meta">
-          <div class="title">${a.title}</div>
-          <div class="sub">${a.type} • ${a.year}</div>
-        </div>
-      `;
-      item.addEventListener('click', ()=> showDetail(a.id));
-      grid.appendChild(item);
-    });
+    <div class="album-card">
+      <img src="../asset/armagedon.jpg" alt="Armagedon">
+      <div class="album-info">
+        <h3><a href="../component/album5.html">Armagedon - The 1st Album</a></h3>
+        <p>2024 • Full Album</p>
+      </div>
+    </div>
 
-    // Detail UI refs
-    const detailEmpty = document.getElementById('detailEmpty');
-    const detailContent = document.getElementById('detailContent');
-    const detailCover = document.querySelector('#detailCover img');
-    const detailType = document.getElementById('detailType');
-    const detailTitle = document.getElementById('detailTitle');
-    const detailSub = document.getElementById('detailSub');
-    const tracklistArea = document.getElementById('tracklistArea');
-    const openSpotify = document.getElementById('openSpotify');
+    <div class="album-card">
+      <img src="../asset/drama.jpg" alt="Drama">
+      <div class="album-info">
+        <h3><a href="../component/album6.html">Drama - The 4th Mini Album</a></h3>
+        <p>2023 • Album</p>
+      </div>
+    </div>
 
-    // show album detail
-    function showDetail(id) {
-      const album = albums.find(x=>x.id===id);
-      if(!album) return;
-      detailEmpty.style.display = 'none';
-      detailContent.style.display = 'block';
+    <div class="album-card">
+      <img src="../asset/synk.jpg" alt="SYNK : Parallel Line">
+      <div class="album-info">
+        <h3><a href="../component/album7.html">SYNK : PARALLEL LINE</a></h3>
+        <p>2024 • EP</p>
+      </div>
+    </div>
 
-      detailCover.src = album.cover;
-      detailCover.alt = album.title + ' cover';
-      detailType.textContent = album.type.toUpperCase();
-      detailTitle.textContent = album.title;
-      detailSub.textContent = `aespa • ${album.year} • ${album.trackCount} lagu`;
+    <div class="album-card">
+      <img src="../asset/my world.jpg" alt="My World">
+      <div class="album-info">
+        <h3><a href="../component/album8.html">MY WORLD - The 3rd Mini Album</a></h3>
+        <p>2023 • Album</p>
+      </div>
+    </div>
 
-      // description (optional, you can customize)
-      document.getElementById('detailDesc').textContent = album.type + ' • dirilis ' + album.year + (album.spotify? ' — buka di Spotify untuk memutar.' : '');
+    <div class="album-card">
+      <img src="../asset/girls.jpg" alt="Girls">
+      <div class="album-info">
+        <h3><a href="../component/album9.html">Girls - The 2nd Mini Album</a></h3>
+        <p>2022 • Album</p>
+      </div>
+    </div>
 
-      // spotify link
-      if(album.spotify) {
-        openSpotify.style.display = 'inline-flex';
-        openSpotify.onclick = ()=> window.open(album.spotify, '_blank');
-      } else {
-        openSpotify.style.display = 'none';
-      }
+    <div class="album-card">
+      <img src="../asset/savage.jpg" alt="Savage">
+      <div class="album-info">
+        <h3><a href="../component/album10.html">Savage - The 1st Mini Album</a></h3>
+        <p>2021 • Album</p>
+      </div>
+    </div>
 
-      // build tracklist
-      tracklistArea.innerHTML = '';
-      if(!album.tracks || album.tracks.length === 0) {
-        // placeholder if tracks unknown
-        const p = document.createElement('div');
-        p.style.color = '#b9abcf';
-        p.style.padding = '14px';
-        p.textContent = 'Tracklist belum tersedia di halaman ini. Kamu bisa mengisi daftar lagu di file data (lihat kode).';
-        tracklistArea.appendChild(p);
-      } else {
-        album.tracks.forEach( (t,i) => {
-          const r = document.createElement('div');
-          r.className = 'track';
-          r.innerHTML = `
-            <div class="num">${i+1}</div>
-            <div class="tmeta">
-              <div class="tname">${t.name}</div>
-              <div class="tfeat"></div>
-            </div>
-            <div class="dur">${t.dur || ''}</div>
-          `;
-          tracklistArea.appendChild(r);
-        });
-      }
-      // scroll detail to top
-      document.getElementById('detail').scrollIntoView({behavior:'smooth'});
-    }
+    <div class="album-card">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1f/53/e2/1f53e291-df44-bb66-1c29-6e74c2b0eab0/aespa_BlackMamba_final.png/316x316bb.webp" alt="Black Mamba">
+      <div class="album-info">
+        <h3><a href="../component/album11.html">Black Mamba - Debut Single</a></h3>
+        <p>2020 • Single</p>
+      </div>
+    </div>
+  </main>
 
-    // optional: show first album by default
-    if(albums.length) showDetail(albums[0].id);
-  </script>
+  <footer>
+    <p>Dibuat oleh Tim Green Flag - Tugas Web Front-End</p>
+    <p>&copy; 2025 MYKROS. All rights reserved.</p>
+  </footer>
 </body>
 </html>
