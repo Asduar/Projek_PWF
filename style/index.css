@@ -15,31 +15,6 @@
     font-weight: 600;
 }
 
-.table-custom {
-    color: #e0e0e0;
-    background-color: #1a1a2e;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.table-custom thead th {
-    color: #ffffff;
-    background-color: #1a1a2e;
-    border-bottom: 2px solid #ff00ff;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.table-custom.table-hover > tbody > tr:hover {
-    background-color: rgba(255, 0, 255, 0.05); 
-    color: #ff00ff;
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
-}
-
-.table-custom td, 
-.table-custom th {
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
 .stat-item {
     padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
