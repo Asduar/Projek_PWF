@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AESPA – Whiplash</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/style/style.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap');
+
+    body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(to top,
+      rgba(254, 226, 185, 1) 0%,
+      rgba(245, 241, 222, 0.9) 40%,
+      rgba(9, 27, 85, 0.95) 100%);
+  overflow: hidden; /* tetap boleh hidden supaya tidak scroll ganda */
+  height: 100vh;
+}
+
+
+    /* === MAIN LAYOUT === */
+    .main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: calc(100vh - 60px);
+  margin-top: 0;
+  padding: 20px;
+  box-sizing: border-box;
+
+  overflow: visible; 
+  gap: 20px;
+}
+
+
+    /* BAGIAN KIRI (LIRIK) */
+    .left-lyrics-section {
+  flex: 2;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* ✅ ini penting */
+  text-shadow: 0 0 15px #1f44fb, 0 0 25px rgba(34, 0, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  height: 100%; /* ✅ tambahkan ini */
+}
+
+
+    /* BAGIAN KANAN (INFO & FOTO) */
+    .right-sidebar-section {
+      flex: 1;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-left: 2px solid rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
+      color: #333;
+    }
+
+    /* Kotak Info (Credits & Album Info) */
+    .producer-box {
+      background-color: rgba(255, 255, 255, 0.75);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(100, 0, 100, 0.2);
+      font-size: 0.95em;
+      margin-bottom: 20px;
+    }
+
+    .producer-box h4 {
+      margin: 0 0 10px 0;
+      color: #1f44fb;
+      font-size: 1.2em;
+      border-bottom: 2px solid rgba(34, 0, 255, 0.7);
+      padding-bottom: 5px;
+    }
+
+    .producer-box p {
+      margin: 5px 0;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    /* GRID FOTO */
+    .photo-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      box-sizing: border-box;
+      margin-top: 15px;
+      padding-bottom: 10px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.3s ease-in-out;
+    }
+
+    .photo-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(190, 5, 203, 0.7);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #043f6f;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar" aria-labelledby="mySidebarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mySidebarLabel">MYKROS MENU</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1"><a class="nav-link active" href="/index.html"><i
+              class="bi bi-house-door-fill me-2"></i>Home</a></li>
+        <li class="mb-1"><a class="nav-link" href="./component/fanclub.html"><i
+              class="bi bi-star-fill me-2"></i>Fanclub</a></li>
+        <li class="mb-1"><a class="nav-link" href="biografi.html"><i
+              class="bi bi-people-fill me-2"></i>Biografi</a></li>
+        <li class="mb-1"><a class="nav-link" href="diskografi.html"><i
+              class="bi bi-disc-fill me-2"></i>Diskografi</a></li>
+        <li class="mb-1"><a class="nav-link" href="galeri.html"><i class="bi bi-images me-2"></i>Galeri</a></li>
+        <li class="mb-1"><a class="nav-link" href="jadwal.html"><i
+              class="bi bi-calendar-event-fill me-2"></i>Jadwal</a></li>
+        <li class="mb-1"><a class="nav-link" href="./component/prestasi.html"><i
+              class="bi bi-trophy-fill me-2"></i>Prestasi</a></li>
+        <li class="mb-1"><a class="nav-link" href="about_us.html"><i
+              class="bi bi-info-circle-fill me-2"></i>About Us</a></li>
+      </ul>
+      <hr>
+      <div class="d-flex flex-column">
+        <a href="/component/signin.html" class="btn btn-outline-light mb-2">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
+        </a>
+        <a href="/component/register.html" class="btn btn-light">
+          <i class="bi bi-person-plus-fill me-1"></i> Register
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar"
+        aria-controls="mySidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand fw-bold mx-auto" href="/index.html">MYKROS</a>
+
+      <div class="d-none d-lg-flex">
+        <a href="/component/signin.html" class="btn btn-nav-signin me-2">Sign In</a>
+        <a href="/component/register.html" class="btn btn-nav-register">Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ISI HALAMAN -->
+  <div class="main-container">
+    <div class="left-lyrics-section">
+      <h1 class="lyric-title">Aespa "Whiplash" 가사</h1>
+      <hr>
+      <div class="lyric-box">
+            <p class="lyric-section">[Intro: Ningning]</p>
+            <p>Yeah</p>
+
+            <p class="lyric-section">[Chorus: Karina, Giselle]</p>
+            <p>One look, give 'em whiplash<br>
+                Beat drop with a big flash<br>
+                집중해, 좀 더 think fast<br>
+                이유 넌 이해 못 해, uh<br>
+                왜 이제야, know I did that, uh<br>
+                Day one, know I been bad, uh<br>
+                Don't stop, 흔들린 채<br>
+                무리해도 can't touch that (Can't touch that)</p>
+
+            <p class="lyric-section">[Refrain: Winter, Ningning]</p>
+            <p>Under pressure, body sweating, can you focus?<br>
+                어디서나 거침없어, I'm the coldest<br>
+                오직 나만이 이 판을 바꿀 changer<br>
+                Just close your eyes, breathe in and visualize</p>
+
+            <p class="lyric-section">[Chorus: Karina, Ningning, Winter]</p>
+            <p>One look, give 'em whiplash<br>
+                Beat drop with a big flash<br>
+                집중해, 좀 더 think fast<br>
+                이유 넌 이해 못 해, uh<br>
+                왜 이제야, know I did that (Yeah)<br>
+                Day one, know I been bad<br>
+                Don't stop, 흔들린 채 (Yeah)<br>
+                무리해도 can't touch that (Can't touch that)</p>
+
+            <p class="lyric-section">[Post-Chorus: Giselle, Winter, Ningning, Karina]</p>
+            <p>Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                One look, give 'em whiplash</p>
+
+            <p class="lyric-section">[Verse: Ningning]</p>
+            <p>Fancy <br>
+                이건 참 화려해<br>
+                It's glowing and it's flashy (Yeah)<br>
+                알아 적당함이 뭔지 keep it classy<br>
+                따라 하지 넌 또 하나부터 열까지 (Yeah)<br>
+                아닌척하지, yeah</p>
+
+            <p class="lyric-section">[Refrain: Giselle, Winter]</p>
+            <p>Under pressure, body sweating, can you focus? (Hoo)<br>
+                I deliver, I can promise, I'm the coldest (Cold)<br>
+                외면해도 소용없지, don't you blow it<br>
+                Just close your eyes, breathe in and visualize</p>
+
+            <p class="lyric-section">[Pre-Chorus: Ningning, Karina]</p>
+            <p>시작되는 순간 끝나버린 판단<br>
+                기횐 오직 one time, unforgettable<br>
+                찾아낸 the right light, 사라지지 않아<br>
+                눈에 새긴 one time, unforgettable</p>
+
+            <p class="lyric-section">[Chorus: Winter, Giselle]</p>
+            <p>One look, give 'em whiplash (Shee)<br>
+                Beat drop with a big flash<br>
+                집중해, 좀 더 think fast<br>
+                이유 넌 이해 못 해, mm<br>
+                왜 이제야, know I did that (Yeah)<br>
+                Day one, know I been bad, uh<br>
+                Don't stop, 흔들린 채 (Yeah)<br>
+                무리해도 can't touch that (Can't touch that)</p>
+
+            <p class="lyric-section">[Bridge: Ningning, Winter, Giselle]</p>
+            <p>I'm the highlight, 비춰 red light<br>
+                Yeah, tonight, it's all 'bout me (All about me)<br>
+                You know it's my site, 거친 next sigh<br>
+                만들어갈 history</p>
+
+            <p class="lyric-section">[Chorus: Giselle, Karina, Ningning]</p>
+            <p>One look, give 'em whiplash (Uh, wee; whip-whip)<br>
+                Beat drop with a big flash (Yeah)<br>
+                따라와 어서 move fast (Move, move, move)<br>
+                이유 넌 이해 못 해, uh (Yeah)<br>
+                왜 이제야, know I did that (Yeah; did that)<br>
+                Day one, know I been bad, uh (Been bad)<br>
+                Don't stop, 흔들린 채 (Yeah; woo)<br>
+                다가와도 can't touch that (Can't touch that)</p>
+
+            <p class="lyric-section">[Post-Chorus: Winter, Ningning, Giselle, Karina]</p>
+            <p>Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash<br>
+                Whip-whiplash</p>
+
+            <p class="lyric-section">[Outro: All]</p>
+            <p>One look, give 'em whiplash</p>
+        </div>
+    </div>
+
+    <div class="right-sidebar-section">
+      <div class="producer-box">
+        <h4>Credits ✍️</h4>
+        <p><strong>Main Artist:</strong> Aespa</p>
+        <p><strong>Producer:</strong> Lewis Jankel, Neil Ormandy</p>
+        <p><strong>Songwriters:</strong> Leslie, Neil Ormandy, MarcLo, Lomax and Rosina, "Soaky Siren" Russell.</p>
+        <p><strong>Composer:</strong> Marcus "MarcLo" Lomax and Rosina</p>
+      </div>
+
+      <div class="producer-box">
+        <h4>Album Info 💿</h4>
+        <p><strong>Album:</strong> Whiplash - The 5th Mini Album</p>
+        <p><strong>Track No:</strong> 1</p>
+        <p><strong>Release Date:</strong> 21 Oktober 2024</p>
+        <p><strong>Song Duration:</strong> 3:03</p>
+      </div>
+
+      <div class="photo-grid">
+        <img src="../asset/Whiplash.png" alt="aespa group 2">
+        <img src="../asset/karina WP.jpg" alt="Karina Whiplash">
+        <img src="../asset/Giselle WP.jpg" alt="Giselle Whiplash">
+        <img src="../asset/Winter WP.jpg" alt="Winter Whiplash">
+        <img src="../asset/Ningning Wp.jpg" alt="Ningning Whiplash">
+        <img src="../asset/Whiplashh.jpg" alt="aespa Whiplash">
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

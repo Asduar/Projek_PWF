@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aespa – Dirtywork</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/style/style.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-image: url(../asset/BGRichM.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      color: rgb(255, 255, 255);
+      height: 100vh;
+      background: linear-gradient(to top right, black, rgb(255, 191, 152));
+      /* overflow: hidden; */
+    }
+
+    /* Container utama kiri-kanan */
+    .main-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      height: calc(100vh - 60px);
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      gap: 20px;
+      overflow: hidden;
+    }
+
+    /* BAGIAN KIRI (scroll aktif) */
+    .left-lyrics-section {
+      flex: 2;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      text-shadow: 0 0 15px #ff8c00, 0 0 25px rgba(183, 61, 5, 0.7);
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      height: 100%;
+    }
+
+    /* BAGIAN KANAN */
+    .right-sidebar-section {
+      flex: 1;
+      height: calc(100vh - 60px); /* biar pas di layar */
+      box-sizing: border-box;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-left: 2px solid rgba(255, 255, 255, 0.4);
+      color: #333;
+      border-radius: 12px;
+    }
+
+    .producer-box {
+      background-color: rgba(255, 255, 255, 0.75);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(100, 0, 100, 0.2);
+      font-size: 0.95em;
+      margin-bottom: 20px;
+    }
+
+    .producer-box h4 {
+      margin: 0 0 10px 0;
+      color: #ff8c00;
+      font-size: 1.2em;
+      border-bottom: 2px solid rgba(183, 61, 5, 0.7);
+      padding-bottom: 5px;
+    }
+
+    .producer-box p {
+      margin: 5px 0;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .photo-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 15px;
+      box-sizing: border-box;
+      margin-top: 15px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.3s ease-in-out;
+    }
+
+    .photo-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(190, 5, 203, 0.7);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #935514;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar" aria-labelledby="mySidebarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mySidebarLabel">MYKROS MENU</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1"><a class="nav-link active" href="/index.html"><i
+              class="bi bi-house-door-fill me-2"></i>Home</a></li>
+        <li class="mb-1"><a class="nav-link" href="./component/fanclub.html"><i
+              class="bi bi-star-fill me-2"></i>Fanclub</a></li>
+        <li class="mb-1"><a class="nav-link" href="biografi.html"><i class="bi bi-people-fill me-2"></i>Biografi</a>
+        </li>
+        <li class="mb-1"><a class="nav-link" href="diskografi.html"><i
+              class="bi bi-disc-fill me-2"></i>Diskografi</a></li>
+        <li class="mb-1"><a class="nav-link" href="galeri.html"><i class="bi bi-images me-2"></i>Galeri</a></li>
+        <li class="mb-1"><a class="nav-link" href="jadwal.html"><i
+              class="bi bi-calendar-event-fill me-2"></i>Jadwal</a></li>
+        <li class="mb-1"><a class="nav-link" href="./component/prestasi.html"><i
+              class="bi bi-trophy-fill me-2"></i>Prestasi</a></li>
+        <li class="mb-1"><a class="nav-link" href="about_us.html"><i
+              class="bi bi-info-circle-fill me-2"></i>About Us</a></li>
+      </ul>
+      <hr>
+      <div class="d-flex flex-column">
+        <a href="/component/signin.html" class="btn btn-outline-light mb-2">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
+        </a>
+        <a href="/component/register.html" class="btn btn-light">
+          <i class="bi bi-person-plus-fill me-1"></i> Register
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar"
+        aria-controls="mySidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand fw-bold mx-auto" href="/index.html">MYKROS</a>
+
+      <div class="d-none d-lg-flex">
+        <a href="/component/signin.html" class="btn btn-nav-signin me-2">Sign In</a>
+        <a href="/component/register.html" class="btn btn-nav-register">Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Container kiri-kanan -->
+  <div class="main-container">
+
+    <div class="left-lyrics-section">
+      <h1 class="lyric-title">[Aespa "Dirty Work" 가사]</h1>
+      <hr>
+      <!-- lirik yang sudah kamu tulis -->
+      <div class="lyric-box">
+            <p class="lyric-section">[Verse 1: Karina, Winter, Giselle]</p>
+                <p>World domination, I don't gotta say it<br>
+                전엔 없던 돌연변이 같아<br>
+                저주야 난 다수로 볼 땐<br>
+                Set 'em on fire, 스스로 밝혀<br>
+                And I don't really care if you like me, like me<br>
+                I don't really wanna play nicely, nicely<br>
+                오답을 고른 게 정답인 선택<br>
+                Open your eyes, come and bite me</p>
+
+            <p class="lyric-section">[Chorus: Ningning, Karina]</p>
+                <p>Sharp teeth, bite first<br>
+                Real bad business, that's dirty work (Yeah)<br>
+                Real bad business, that's dirty work<br>
+                Real bad business, that's dirty work<br>
+                Bold eyes, cold stare<br>
+                Real bad business, that's dirty work<br>
+                Real bad business, that's dirty work (Yeah)<br>
+                Real bad business, that's dirty work</p>
+
+            <p class="lyric-section">[Post-Chorus: All, Winter]</p>
+                <p>Work, work, work, work (Yeah)<br>
+                Work, work, work, work<br>
+                Real bad business, that's dirty work<br>
+                Real bad business, that's dirty work</p>
+
+            <p class="lyric-section">[Verse 2: Giselle, Ningning]</p>
+                <p>I'm not an it girl, more like a hit girl<br>
+                Mafia ties going back to the old world<br>
+                Fear in their eyes, I'm always watching<br>
+                Call me the reaper, I'm knock, knock, knocking<br>
+                It's me, it's me, a little baddie<br>
+                Just 'cause I'm pretty doesn't mean I don't do hard things<br>
+                Hard things, make me feel like a thunder<br>
+                Let me think, 뭐를 하든 I will like it, like it</p>
+
+            <p class="lyric-section">[Chorus: Winter, Giselle, Karina]</p>
+                <p>Sharp eyes, fierce look<br>
+                Real bad business, that's dirty work (Yeah)<br>
+                Real bad business, that's dirty work (Yeah)<br>
+                Real bad business, that's dirty work<br>
+                Hold tight, get tough<br>
+                Real bad business, that's dirty work (Dirty work)<br>
+                Real bad business, that's dirty work (Yeah)<br>
+                Real bad business, that's dirty work</p>
+
+            <p class="lyric-section">[Bridge: Karina, Giselle, Winter, Ningning]</p>
+                <p></p>We don't see you as a threat<br>
+                얄팍한 rule, 따윈 한 겹의 glass<br>
+                내 맘대로 해, 깨트려 내<br>
+                쉽게 난 두 발로 그 위를 pass, yeah<br>
+                Kick up the dust, let 'em talk about it<br>
+                Crawl out the mud, let 'em know about it<br>
+                번뇌를 깨우는 음률 속에<br>
+                두 눈을 봐, well, you already found it</p>
+
+            <p class="lyric-section">[Refrain: Karina, Ningning, Winter, Giselle]</p>
+                <p>Drop it low, low, low, low, low, low<br>
+                Work it out, work it out<br>
+                Drop it low, low, low, low, low, low<br>
+                Work it out, work it out<br>
+                Drop it low, low, low, low, low, low<br>
+                Work it out, work it out<br>
+                Drop it low, low, low, low, low, low<br>
+                Work it out, work it out (Work it)</p>
+
+            <p class="lyric-section">[Chorus: Karina, Winter]</p>
+                <p>Sharp teeth, bite first<br>
+                Real bad business, that's dirty work<br>
+                Real bad business, that's dirty work (Yeah)<br>
+                Real bad business, that's dirty work (Yeah)<br>
+                Bold eyes, cold stare<br>
+                Real bad business, that's dirty work<br>
+                Real bad business, that's dirty work (Yeah)<br>
+                Real bad business, that's dirty work</p>
+
+            <p class="lyric-section">[Outro: All, Ningning, Karina]</p>
+                <p>Work (Work), work (Work), work (Work), work (Work; yeah)<br>
+                Work, work, work<br>
+                Real bad business, that's dirty work (Work it out, work it out)<br>
+                Real bad business, that's dirty work (Work it out)<br>
+                Work, work, work, work (Yeah)<br>
+                Work, work, work (Yeah)<br>
+                Real bad business, that's dirty work (Work it out, work it out)<br>
+                Real bad business, that's dirty work (Work it out)</p>
+        </div>
+    </div>
+
+    <div class="right-sidebar-section">
+      <div class="producer-box">
+        <h4>Credits ✍️</h4>
+        <p><strong>Main Artist:</strong> Aespa</p>
+        <p><strong>Producer:</strong> Evan Blair, IMLAY</p>
+        <p><strong>Songwriters:</strong> Evan Blair, UPSAHL, Elijah Nool, IMLAY, Jungmoolhwa</p>
+        <p><strong>Composer:</strong> Evan Blair, IMLAY, Taylor Upsah, Elijah Nool</p>
+      </div>
+
+      <div class="producer-box">
+        <h4>Album Info 💿</h4>
+        <p><strong>Album:</strong> Dirtywork - Single Album</p>
+        <p><strong>Track No:</strong> 1</p>
+        <p><strong>Release Date:</strong> 27 Juni 2025.</p>
+        <p><strong>Song Duration:</strong> 3:00</p>
+      </div>
+
+      <div class="photo-grid">
+        <img src="../asset/Dirtywork.png" alt="aespa group 3">
+        <img src="../asset/Karina DW.jpg" alt="Karina Dirtywork">
+        <img src="../asset/Giselle DW.jpg" alt="Giselle Dirtywork">
+        <img src="../asset/Winter DW.jpg" alt="Winter Dirtywork">
+        <img src="../asset/Ningning DW.jpg" alt="Ningning Dirtywork">
+        <img src="../asset/Aespa DW.jpg" alt="aespa Dirtywork">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
