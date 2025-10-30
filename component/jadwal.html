@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYKROS - Jadwal aespa</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/jadwal.css">
+</head>
+<body>
+
+    <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar" aria-labelledby="mySidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mySidebarLabel">MYKROS MENU</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1"><a class="nav-link" href="../index.html"><i class="bi bi-house-door-fill me-2"></i>Home</a></li>
+                <li class="mb-1"><a class="nav-link" href="/component/fanclub.html"><i class="bi bi-star-fill me-2"></i>Fanclub</a></li>
+                <li class="mb-1"><a class="nav-link" href="biografi.html"><i class="bi bi-people-fill me-2"></i>Biografi</a></li>
+                <li class="mb-1"><a class="nav-link" href="diskografi.html"><i class="bi bi-disc-fill me-2"></i>Diskografi</a></li>
+                <li class="mb-1"><a class="nav-link" href="galeri.html"><i class="bi bi-images me-2"></i>Galeri</a></li>
+                <li class="mb-1"><a class="nav-link active" href="/component/jadwal.html"><i class="bi bi-calendar-event-fill me-2"></i>Jadwal</a></li>
+                <li class="mb-1"><a class="nav-link" href="/component/prestasi.html"><i class="bi bi-trophy-fill me-2"></i>Prestasi</a></li>
+                <li class="mb-1"><a class="nav-link" href="/component/faq.html"><i class="bi bi-question-circle-fill me-2"></i>FAQ</a></li>
+                <li class="mb-1"><a class="nav-link" href="about_us.html"><i class="bi bi-info-circle-fill me-2"></i>About Us</a></li>
+            </ul>
+            <hr>
+            <div class="d-flex flex-column">
+                <a href="../signin.html" class="btn btn-outline-light mb-2"><i class="bi bi-box-arrow-in-right me-1"></i> Sign In</a>
+                <a href="../register.html" class="btn btn-light"><i class="bi bi-person-plus-fill me-1"></i> Register</a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar" aria-controls="mySidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand fw-bold mx-auto" href="../index.html">
+                MYKROS
+            </a>
+            <div class="d-none d-lg-flex">
+                <a href="../signin.html" class="btn btn-nav-signin me-2">Sign In</a>
+                <a href="../register.html" class="btn btn-nav-register">Register</a>
+            </div>
+        </div>
+    </nav>
+    <section class="container text-center py-5">
+        <h1 class="display-3 fw-bold">Jadwal Resmi</h1>
+        <p class="lead text-white-50">Ikuti terus aktivitas terbaru aespa, mulai dari tur dunia, rilis album, hingga penampilan di acara musik.</p>
+    </section>
+
+    <section class="container pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                <ul class="nav nav-tabs futuristic-tabs" id="jadwalTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="upcoming-tab" data-bs-toggle="tab" data-bs-target="#upcoming-content" type="button" role="tab" aria-controls="upcoming-content" aria-selected="true">
+                            Akan Datang
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="past-tab" data-bs-toggle="tab" data-bs-target="#past-content" type="button" role="tab" aria-controls="past-content" aria-selected="false">
+                            Selesai
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="jadwalTabContent">
+                    
+                    <div class="tab-pane fade show active" id="upcoming-content" role="tabpanel" aria-labelledby="upcoming-tab">
+                        <div class="table-responsive pt-4"> <table class="table table-custom table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Tanggal</th>
+                                        <th scope="col">Acara</th>
+                                        <th scope="col">Lokasi</th>
+                                        <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>15 Nov 2025</td>
+                                        <td>SYNK: Parallel Line - World Tour</td>
+                                        <td>Singapore, Singapore</td>
+                                        <td><span class="badge bg-success">TERSEDIA</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>30 Nov 2025</td>
+                                        <td>SYNK: Parallel Line - World Tour</td>
+                                        <td>Jakarta, Indonesia</td>
+                                        <td><span class="badge bg-danger">SOLD OUT</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5 Des 2025</td>
+                                        <td>SYNK: Parallel Line - World Tour</td>
+                                        <td>Bangkok, Thailand</td>
+                                        <td><span class="badge bg-success">TERSEDIA</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>12 Des 2025</td>
+                                        <td>KBS Song Festival (Gayo Daechukje)</td>
+                                        <td>Seoul, Korea Selatan</td>
+                                        <td><span class="badge bg-info">LIVE TV</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>18 Des 2025</td>
+                                        <td>SYNK: Parallel Line - World Tour</td>
+                                        <td>Manila, Filipina</td>
+                                        <td><span class="badge bg-warning text-dark">SEGERA</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>25 Des 2025</td>
+                                        <td>SBS Gayo Daejeon</td>
+                                        <td>Seoul, Korea Selatan</td>
+                                        <td><span class="badge bg-info">LIVE TV</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>10 Jan 2026</td>
+                                        <td>Golden Disc Awards (GDA)</td>
+                                        <td>TBA</td>
+                                        <td><span class="badge bg-info">LIVE TV</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>23 Jan 2026</td>
+                                        <td>Seoul Music Awards (SMA)</td>
+                                        <td>Seoul, Korea Selatan</td>
+                                        <td><span class="badge bg-info">LIVE TV</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="past-content" role="tabpanel" aria-labelledby="past-tab">
+                        <div class="table-responsive pt-4">
+                            <table class="table table-custom table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Tanggal</th>
+                                        <th scope="col">Acara</th>
+                                        <th scope="col">Lokasi</th>
+                                        <th scope="col">Catatan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>13 Okt 2025</td>
+                                        <td>SYNK: Parallel Line - World Tour</td>
+                                        <td>Tokyo, Japan</td>
+                                        <td><span class="badge bg-secondary">Selesai</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>30 Nov 2024</td>
+                                        <td>Melon Music Awards 2024</td>
+                                        <td>Incheon, Korea Selatan</td>
+                                        <td><span class="badge bg-secondary">Menang Daesang</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>27 Mei 2024</td>
+                                        <td>"Armageddon" Album Release</td>
+                                        <td>Online</td>
+                                        <td><span class="badge bg-secondary">Full Album Pertama</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>13 Mei 2024</td>
+                                        <td>"Supernova" Pre-release</td>
+                                        <td>Online</td>
+                                        <td><span class="badge bg-secondary">Meraih PAK</span></td>
+                                    </tr>
+                                     <tr>
+                                        <td>6 Agu 2023</td>
+                                        <td>SYNK: HYPER LINE - Tour</td>
+                                        <td>Tokyo Dome, Japan</td>
+                                        <td><span class="badge bg-secondary">Konser Tokyo Dome</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>8 Mei 2023</td>
+                                        <td>"My World" Album Release</td>
+                                        <td>Online</td>
+                                        <td><span class="badge bg-secondary">Mini Album ke-3</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>23 Apr 2022</td>
+                                        <td>Coachella (Main Stage)</td>
+                                        <td>California, USA</td>
+                                        <td><span class="badge bg-secondary">Penampilan Coachella</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>8 Juli 2022</td>
+                                        <td>"Girls" Album Release</td>
+                                        <td>Online</td>
+                                        <td><span class="badge bg-secondary">Mini Album ke-2</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5 Okt 2021</td>
+                                        <td>"Savage" Album Release</td>
+                                        <td>Online</td>
+                                        <td><span class="badge bg-secondary">Mini Album ke-1</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>17 Nov 2020</td>
+                                        <td>"Black Mamba" Debut</td>
+                                        <td>Online</td>
+                                        <td><span class="badge bg-secondary">Debut</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> 
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="container-fluid footer-custom py-4 mt-5">
+        <div class="container text-center">
+            <p>Dibuat oleh Tim Green Flag - Tugas Web Front-End</p>
+            <p>&copy; 2025 MYKROS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

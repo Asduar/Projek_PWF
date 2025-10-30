@@ -1,235 +1,141 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MYKROS - Diskografi aespa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYKROS - Diskografi aespa</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-  <style>
-    /* Tema gelap ala Spotify */
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Header */
-    header {
-      text-align: center;
-      padding: 60px 20px 20px;
-    }
-
-    header h1 {
-      font-size: 40px;
-      font-weight: 700;
-    }
-
-    header p {
-      color: #b3b3b3;
-    }
-
-    .filter-bar {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
-
-    .filter-bar button {
-      background-color: #1f1f1f;
-      color: #fff;
-      border: none;
-      border-radius: 20px;
-      padding: 8px 15px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .filter-bar button.active {
-      background-color: #fff;
-      color: #000;
-      font-weight: 600;
-    }
-
-    /* Grid album */
-    .album-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 25px;
-      padding: 40px 50px 80px;
-    }
-
-    .album-card {
-      background-color: #121212;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .album-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    }
-
-    .album-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .album-info {
-      padding: 10px;
-    }
-
-    .album-info h3 {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .album-info a {
-      text-decoration: none;
-      color: #fff;
-    }
-
-    .album-info a:hover {
-      text-decoration: underline;
-    }
-
-    .album-info p {
-      color: #b3b3b3;
-      font-size: 13px;
-      margin: 0;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      color: #aaa;
-      font-size: 13px;
-      padding: 20px 0 30px;
-      border-top: 1px solid #1a1a1a;
-      background-color: #000;
-    }
-  </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/diskografi.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-black sticky-top shadow-sm">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bold mx-auto" href="../index.html">MYKROS</a>
+
+    <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar" aria-labelledby="mySidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mySidebarLabel">MYKROS MENU</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1"><a class="nav-link" href="../index.html"><i class="bi bi-house-door-fill me-2"></i>Home</a></li>
+                <li class="mb-1"><a class="nav-link" href="/component/fanclub.html"><i class="bi bi-star-fill me-2"></i>Fanclub</a></li>
+                <li class="mb-1"><a class="nav-link" href="biografi.html"><i class="bi bi-people-fill me-2"></i>Biografi</a></li>
+                <li class="mb-1"><a class="nav-link active" href="/component/diskografi.html"><i class="bi bi-disc-fill me-2"></i>Diskografi</a></li>
+                <li class="mb-1"><a class="nav-link" href="galeri.html"><i class="bi bi-images me-2"></i>Galeri</a></li>
+                <li class="mb-1"><a class="nav-link" href="/component/jadwal.html"><i class="bi bi-calendar-event-fill me-2"></i>Jadwal</a></li>
+                <li class="mb-1"><a class="nav-link" href="/component/prestasi.html"><i class="bi bi-trophy-fill me-2"></i>Prestasi</a></li>
+                <li class="mb-1"><a class="nav-link" href="/component/faq.html"><i class="bi bi-question-circle-fill me-2"></i>FAQ</a></li>
+                <li class="mb-1"><a class="nav-link" href="about_us.html"><i class="bi bi-info-circle-fill me-2"></i>About Us</a></li>
+            </ul>
+            <hr>
+            <div class="d-flex flex-column">
+                <a href="../signin.html" class="btn btn-outline-light mb-2"><i class="bi bi-box-arrow-in-right me-1"></i> Sign In</a>
+                <a href="../register.html" class="btn btn-light"><i class="bi bi-person-plus-fill me-1"></i> Register</a>
+            </div>
+        </div>
     </div>
-  </nav>
+    <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar" aria-controls="mySidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand fw-bold mx-auto" href="../index.html">
+                MYKROS
+            </a>
+            <div class="d-none d-lg-flex">
+                <a href="../signin.html" class="btn btn-nav-signin me-2">Sign In</a>
+                <a href="../register.html" class="btn btn-nav-register">Register</a>
+            </div>
+        </div>
+    </nav>
+    <header class="container disco-header text-center py-5">
+        <h1 class="display-3 fw-bold">Diskografi</h1>
+        <p class="lead text-white-50">Jelajahi semua rilis resmi dari aespa.</p>
+        
+        <div class="filter-bar mt-4">
+            <button class="active">Popular Releases</button>
+            <button>Albums</button>
+            <button>Singles and EPs</button>
+        </div>
+    </header>
 
-  <header>
-    <h1>Diskografi</h1>
-    <p>Jelajahi semua rilis resmi dari aespa.</p>
+    <main class="album-container container">
+        <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b273f26e3693011a75c41a1d9697" alt="Rich Man Remixes">
+            <div class="album-info">
+                <h3><a href="#">Rich Man (Remixes)</a></h3>
+                <p>Latest Release • EP • 2025</p>
+            </div>
+        </div>
 
-    <div class="filter-bar">
-      <button class="active">Album</button>
-    </div>
-  </header>
+        <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b273358385c0bcd7df484aa66ac8" alt="Rich Man">
+            <div class="album-info">
+                <h3><a href="#">Rich Man - The 6th Mini Album</a></h3>
+                <p>2025 • EP</p>
+            </div>
+        </div>
 
-  <main class="album-container">
-    <div class="album-card">
-      <img src="../asset/1275x1275bb-60.webp" alt="Rich Man Remixes">
-      <div class="album-info">
-        <h3><a href="../component/album1.html">Rich Man (Remixes)</a></h3>
-        <p>Latest Release • EP • 2025</p>
-      </div>
-    </div>
+        <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b2733a90f53c2da27c8a7b3d5983" alt="Drama">
+            <div class="album-info">
+                <h3><a href="#">Drama - The 4th Mini Album</a></h3>
+                <p>2023 • Album</p>
+            </div>
+        </div>
 
-    <div class="album-card">
-      <img src="../asset/dang.jpg" alt="Rich Man">
-      <div class="album-info">
-        <h3><a href="../component/album2.html">Rich Man - The 6th Mini Album</a></h3>
-        <p>2025 • EP</p>
-      </div>
-    </div>
+        <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b273afee93915c93dffa50c2a3c8" alt="SYNK : Parallel Line">
+            <div class="album-info">
+                <h3><a href="#">SYNK : PARALLEL LINE</a></h3>
+                <p>2024 • EP</p>
+            </div>
+        </div>
 
-    <div class="album-card">
-      <img src="../asset/dirty work.jpg" alt="Dirty Work">
-      <div class="album-info">
-        <h3><a href="../component/album3.html">Dirty Work - The Single Album</a></h3>
-        <p>2025 • EP</p>
-      </div>
-    </div>
+        <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b273a2f818449874e837cf4dc53e" alt="My World">
+            <div class="album-info">
+                <h3><a href="#">MY WORLD - The 3rd Mini Album</a></h3>
+                <p>2023 • Album</p>
+            </div>
+        </div>
 
-    <div class="album-card">
-      <img src="../asset/whiplash.jpg" alt="Whiplash">
-      <div class="album-info">
-        <h3><a href="../component/album4.html">Whiplash - The 5th Mini Album</a></h3>
-        <p>2025 • EP</p>
-      </div>
-    </div>
+        <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b27359818c1a04b7acba361e0e63" alt="Girls">
+            <div class="album-info">
+                <h3><a href="#">Girls - The 2nd Mini Album</a></h3>
+                <p>2022 • Album</p>
+            </div>
+        </div>
 
-    <div class="album-card">
-      <img src="../asset/armagedon.jpg" alt="Armagedon">
-      <div class="album-info">
-        <h3><a href="../component/album5.html">Armagedon - The 1st Album</a></h3>
-        <p>2024 • Full Album</p>
-      </div>
-    </div>
+        <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b273e74bdbf7b1a03b7a6a32a4b4" alt="Savage">
+            <div class="album-info">
+                <h3><a href="#">Savage - The 1st Mini Album</a></h3>
+                <p>2021 • Album</p>
+            </div>
+        </div>
 
-    <div class="album-card">
-      <img src="../asset/drama.jpg" alt="Drama">
-      <div class="album-info">
-        <h3><a href="../component/album6.html">Drama - The 4th Mini Album</a></h3>
-        <p>2023 • Album</p>
-      </div>
-    </div>
+        <div class="album-card">
+            <img src="https://i.scdn.co/image/ab67616d0000b2730fba07b969a7d2b44b4a33a5" alt="Black Mamba">
+            <div class="album-info">
+                <h3><a href="#">Black Mamba - Debut Single</a></h3>
+                <p>2020 • Single</p>
+            </div>
+        </div>
+        </main>
 
-    <div class="album-card">
-      <img src="../asset/synk.jpg" alt="SYNK : Parallel Line">
-      <div class="album-info">
-        <h3><a href="../component/album7.html">SYNK : PARALLEL LINE</a></h3>
-        <p>2024 • EP</p>
-      </div>
-    </div>
+    <footer class="container-fluid footer-custom py-4 mt-5">
+        <div class="container text-center">
+            <p>Dibuat oleh Tim Green Flag - Tugas Web Front-End</p>
+            <p>&copy; 2025 MYKROS. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <div class="album-card">
-      <img src="../asset/my world.jpg" alt="My World">
-      <div class="album-info">
-        <h3><a href="../component/album8.html">MY WORLD - The 3rd Mini Album</a></h3>
-        <p>2023 • Album</p>
-      </div>
-    </div>
-
-    <div class="album-card">
-      <img src="../asset/girls.jpg" alt="Girls">
-      <div class="album-info">
-        <h3><a href="../component/album9.html">Girls - The 2nd Mini Album</a></h3>
-        <p>2022 • Album</p>
-      </div>
-    </div>
-
-    <div class="album-card">
-      <img src="../asset/savage.jpg" alt="Savage">
-      <div class="album-info">
-        <h3><a href="../component/album10.html">Savage - The 1st Mini Album</a></h3>
-        <p>2021 • Album</p>
-      </div>
-    </div>
-
-    <div class="album-card">
-      <img src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1f/53/e2/1f53e291-df44-bb66-1c29-6e74c2b0eab0/aespa_BlackMamba_final.png/316x316bb.webp" alt="Black Mamba">
-      <div class="album-info">
-        <h3><a href="../component/album11.html">Black Mamba - Debut Single</a></h3>
-        <p>2020 • Single</p>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <p>Dibuat oleh Tim Green Flag - Tugas Web Front-End</p>
-    <p>&copy; 2025 MYKROS. All rights reserved.</p>
-  </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
