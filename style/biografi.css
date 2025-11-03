@@ -1,0 +1,322 @@
+/* Import font aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Poppins:wght@300;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #1b0028, #0a0011);
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #3d0066, #7a00b0, #1b0028);
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
+  color: #fff;
+}
+
+.header h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px #a76eff;
+}
+
+.header p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #e8d7ff;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== ABOUT SECTION ===== */
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 60px 10%;
+  gap: 40px;
+}
+
+.group-photo {
+  width: 380px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(190, 127, 255, 0.4);
+  transition: 0.4s ease;
+}
+
+.group-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 45px rgba(190, 127, 255, 0.8);
+}
+
+.about-text {
+  max-width: 500px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  color: #c58aff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(200, 150, 255, 0.6);
+}
+
+.about-text p {
+  font-size: 1rem;
+  color: #e5d7ff;
+  text-align: justify;
+}
+
+/* ===== MEMBERS SECTION (Kartu Anggota Generik) ===== */
+.members {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.members h2 {
+  font-size: 2.2rem;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #c58aff;
+  text-shadow: 0 0 15px rgba(200, 150, 255, 0.8);
+  margin-bottom: 40px;
+}
+
+.member-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  margin: 25px auto;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(180, 100, 255, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.member-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(200, 150, 255, 0.5);
+}
+
+.member-card img {
+  width: 220px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(180, 100, 255, 0.4);
+  transition: 0.4s ease;
+}
+
+.member-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255, 180, 255, 0.8);
+}
+
+.member-card .info {
+  text-align: left;
+  max-width: 480px;
+}
+
+.member-card h3 {
+  font-size: 1.6rem;
+  color: #d6b3ff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 8px #a86fff;
+}
+
+.member-card p {
+  color: #e9dfff;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* =================================================== */
+/* ===== GAYA KHUSUS DAFTAR ANGGOTA (index.html) ===== */
+/* =================================================== */
+
+.member-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.karina-card {
+    background-color: #330066; /* Warna kotak ungu gelap */
+    border-radius: 15px;
+    padding: 20px; /* Padding lebih kecil agar lebih ringkas */
+    box-shadow: 0 0 20px rgba(102, 0, 204, 0.8); /* Efek glow ungu */
+    max-width: 550px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 20px auto; /* Margin antar kartu */
+    transition: transform 0.3s ease;
+}
+
+.karina-card:hover {
+    transform: translateY(-5px); /* Efek angkat saat di-hover */
+}
+
+.karina-card .image-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #4d0099;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #ccc;
+    flex-shrink: 0;
+    text-align: center;
+    font-weight: 600;
+    /* Efek glow di placeholder gambar */
+    box-shadow: 0 0 10px rgba(153, 51, 255, 0.6);
+}
+
+.karina-card .info {
+    flex-grow: 1;
+}
+
+.karina-card .info p {
+    margin: 5px 0;
+}
+
+.karina-card h2 a {
+    color: #00bfff; /* Warna biru neon untuk tautan */
+    text-decoration: none;
+    font-size: 24px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    transition: color 0.3s;
+}
+
+.karina-card h2 a:hover {
+    text-decoration: underline;
+    color: #55e6ff;
+}
+
+.karina-card strong {
+    color: #c58aff; /* Warna ungu terang untuk label */
+    font-weight: 600;
+}
+
+/* =================================================== */
+/* ===== GAYA KHUSUS HALAMAN BIOGRAFI LENGKAP ===== */
+/* =================================================== */
+
+.biography-wrapper {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.biography-wrapper h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2.8rem;
+    color: #f5f5f5; /* Warna putih */
+    text-shadow: 0 0 15px rgba(200, 150, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+.biography-wrapper .position-text {
+    font-size: 1.1rem;
+    color: #d6b3ff; /* Ungu Muda */
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.biography-wrapper h3 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5rem;
+    color: #c58aff; /* Ungu terang untuk sub judul */
+    border-bottom: 1px solid rgba(197, 138, 255, 0.4);
+    padding-bottom: 5px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.biography-wrapper .profile-list {
+    text-align: left; /* Teks di list diratakan kiri */
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 30px;
+    max-width: 350px; /* Batasi lebar list agar terlihat rapi di tengah */
+}
+
+.biography-wrapper .profile-list li {
+    font-size: 1rem;
+    margin: 8px 0;
+    color: #e5d7ff;
+}
+
+.biography-wrapper .profile-list strong {
+    color: #00bfff; /* Biru neon untuk label */
+    font-weight: 600;
+    display: inline-block;
+    width: 130px; /* Jarak untuk label */
+}
+
+.biography-wrapper .fact-paragraph {
+    text-align: justify;
+    color: #e5d7ff;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.biography-wrapper .fact-list {
+    list-style-type: '— ';
+    text-align: left;
+    margin: 0 auto 30px;
+    padding-left: 25px;
+    color: #e5d7ff;
+}
+.biography-wrapper .fact-list li {
+    margin-bottom: 5px;
+}
+
+.back-link a {
+    color: #00bfff;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.back-link a:hover {
+    color: #c58aff;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 25px;
+  background: #1a0029;
+  color: #c6b0ff;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.footer p {
+  opacity: 0.8;
+}
