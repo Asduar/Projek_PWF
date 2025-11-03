@@ -318,3 +318,45 @@ body {
 .table-custom th {
     border-color: rgba(255, 255, 255, 0.1);
 }
+
+
+/* cssgaleri*/
+ 
+/* Filter Bar (Tombol-tombol) - SUDAH DIUBAH UNTUK <a> */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Agar rapi di HP */
+    gap: 10px;
+}
+ 
+/* Mengubah <button> menjadi <a> */
+.filter-bar a {
+    background-color: transparent;
+    color: #a0a0a0; /* Teks abu-abu (tidak aktif) */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 20px; /* Bentuk pil (pill shape) */
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif; /* Pastikan font seragam */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none; /* [BARU] Hapus garis bawah link */
+}
+ 
+/* Mengubah <button:hover> menjadi <a>:hover */
+.filter-bar a:hover {
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+ 
+/* Mengubah <button.active> menjadi <a>.active */
+.filter-bar a.active {
+    /* Tombol aktif = tema neon kita */
+    background-color: #ff00ff;
+    color: #0f0f1b; /* Teks gelap di atas neon */
+    border-color: #ff00ff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+ 
