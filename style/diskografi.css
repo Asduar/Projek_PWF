@@ -1,87 +1,93 @@
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Poppins', 'Segoe UI', sans-serif;
+/* ===================================== */
+/* [SPESIFIK] Styling Halaman Diskografi */
+/* ===================================== */
+
+/* Header Halaman (Judul & sub-judul) */
+.disco-header h1 {
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.4);
 }
 
-.active-text {
-  color: #fff;
-  font-size: 28px; 
-  font-weight: 700;
-  letter-spacing: 1px;
+/* Styling <h2> "Albums" Anda */
+.disco-header h2 {
+    color: #ff00ff; /* Neon Magenta */
+    font-weight: 700;
+    border-bottom: 2px solid #ff00ff; /* Garis bawah neon */
+    padding-bottom: 10px;
+    margin-top: 2rem; /* Jarak dari <p> di atas */
+    display: inline-block; /* Agar border-bottom pas */
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
 }
 
+/* Kontainer Grid Album */
 .album-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 30px;
-  padding: 50px 0;
+    display: grid;
+    /* Membuat grid responsif: 
+       - Mengisi otomatis dengan kolom
+       - Kolom minimal 200px, maksimal 1fr (seimbang)
+    */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px; /* Jarak antar kartu */
+    padding-bottom: 3rem; /* Jarak sebelum footer */
 }
 
+/* Kartu Album Individual */
 .album-card {
-  background-color: #121212;
-  border-radius: 10px;
-  text-align: center;
-  padding: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+    background-color: #1a1a2e; /* Background gelap */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Agar gambar rapi */
+    transition: all 0.3s ease;
+    padding: 15px; /* Memberi padding di dalam kartu */
 }
 
+/* Efek Hover di Kartu (Sangat Penting) */
 .album-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px); /* Efek terangkat */
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3); /* Glow neon */
+    border-color: #ff00ff; /* Border neon */
 }
 
+/* Gambar Album */
 .album-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease;
+    width: 100%;
+    height: auto; /* Jaga rasio aspek */
+    display: block;
+    border-radius: 4px; /* Sudut gambar sedikit melengkung */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease; /* Efek zoom */
 }
 
 .album-card:hover img {
-  transform: scale(1.03);
+    transform: scale(1.05); /* Sedikit zoom saat hover */
 }
 
-.album-info h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #fff;
+/* Info Album (Teks) */
+.album-card .album-info {
+    text-align: left;
 }
 
-.album-info h3 a {
-  color: #fff;
-  text-decoration: none;
+.album-card .album-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
 }
 
-.album-info h3 a:hover {
-  text-decoration: underline;
+/* Link Judul Album */
+.album-card .album-info a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-.album-info p {
-  font-size: 14px;
-  color: #b3b3b3;
+.album-card .album-info a:hover {
+    color: #ff00ff; /* Hover neon */
+    text-decoration: underline;
 }
 
-.filter-bar {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.filter-bar button {
-  background: none;
-  border: 1px solid #fff;
-  color: #fff;
-  padding: 8px 18px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.filter-bar button.active,
-.filter-bar button:hover {
-  background-color: #fff;
-  color: #000;
+/* Teks Kecil (Tahun, Tipe Album) */
+.album-card .album-info p {
+    font-size: 0.9rem;
+    color: #a0a0a0; /* Teks abu-abu */
+    margin: 0;
 }
