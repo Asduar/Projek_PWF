@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
+ 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #0f0f1b; 
+    background-color: #0f0f1b;
     color: #e0e0e0;
 }
-
+ 
 .navbar-custom {
     background-color: rgba(25, 25, 45, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
+ 
 .sidebar-custom {
     background-color: rgba(25, 25, 45, 0.7);
     backdrop-filter: blur(10px);
@@ -20,11 +20,11 @@ body {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffff;
 }
-
+ 
 .sidebar-custom .offcanvas-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-
+ 
 .sidebar-custom .nav-link {
     color: #ffffff;
     font-size: 1.1rem;
@@ -32,23 +32,23 @@ body {
     border-radius: 5px;
     transition: all 0.2s ease;
 }
-
+ 
 .sidebar-custom .nav-link:hover {
     background-color: rgba(255, 0, 255, 0.1);
-    color: #ff00ff; 
+    color: #ff00ff;
     text-shadow: 0 0 5px #ff00ff;
 }
-
+ 
 .sidebar-custom .nav-link.active {
     font-weight: bold;
     color: #ff00ff;
     background-color: rgba(255, 0, 255, 0.1);
 }
-
+ 
 .sidebar-custom hr {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
-
+ 
 .btn-custom-primary {
     background-color: transparent;
     color: #ff00ff;
@@ -57,13 +57,13 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
 }
-
+ 
 .btn-custom-primary:hover {
-    background-color: rgba(255, 0, 255, 0.2); 
+    background-color: rgba(255, 0, 255, 0.2);
     color: #ffffff;
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
 }
-
+ 
 .sidebar-custom .btn-light {
     background-color: #ff00ff;
     color: #0f0f1b;
@@ -74,7 +74,7 @@ body {
     background-color: #ffffff;
     border-color: #ffffff;
 }
-
+ 
 .sidebar-custom .btn-outline-light {
     border-color: rgba(255, 255, 255, 0.5);
     color: rgba(255, 255, 255, 0.8);
@@ -84,34 +84,34 @@ body {
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
 }
-
+ 
 #gallery-preview.bg-light {
-    background-color: #1a1a2e !important; 
+    background-color: #1a1a2e !important;
 }
-
+ 
 .footer-custom {
     background-color: #1a1a2e;
     color: #a0a0a0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-
+ 
 .btn-nav-register {
-    background-color: #ff00ff; 
-    color: #0f0f1b; 
+    background-color: #ff00ff;
+    color: #0f0f1b;
     border: 2px solid #ff00ff;
     font-weight: 600;
     transition: all 0.3s ease;
-    padding: 0.375rem 0.75rem; 
+    padding: 0.375rem 0.75rem;
     font-size: 1rem;
 }
-
+ 
 .btn-nav-register:hover {
     background-color: #ffffff;
     color: #0f0f1b;
     border-color: #ffffff;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
-
+ 
 .btn-nav-signin {
     background-color: transparent;
     color: #ffffff;
@@ -121,78 +121,78 @@ body {
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
 }
-
+ 
 .btn-nav-signin:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff;
     border-color: #ffffff;
 }
-
+ 
 .navbar-toggler {
     border: none;
 }
-
+ 
 .navbar-toggler:focus {
     box-shadow: none;
     outline: none;
 }
-
+ 
 .badge.bg-danger {
     background-color: #ff00ff !important;
     color: #0f0f1b;
 }
 .badge.bg-success {
-    background-color: #00ffc3 !important; 
+    background-color: #00ffc3 !important;
     color: #0f0f1b;
 }
 .badge.bg-info {
     background-color: #00c3ff !important;
     color: #0f0f1b;
 }
-
+ 
 .bg-section-dark {
-    background-color: #1a1a2e; 
+    background-color: #1a1a2e;
 }
-
+ 
 .card-custom {
-    background-color: #1a1a2e; 
+    background-color: #1a1a2e;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     transition: all 0.3s ease;
     overflow: hidden;
 }
-
+ 
 .card-custom .card-title {
     color: #ffffff;
     font-weight: 600;
 }
-
+ 
 .card-custom .card-text {
     color: #a0a0a0;
 }
-
+ 
 .card-link {
     text-decoration: none;
 }
-
+ 
 .card-custom:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
     border-color: #ff00ff;
 }
-
+ 
 .card-custom img {
     transition: transform 0.3s ease;
 }
-
+ 
 .card-custom:hover img {
     transform: scale(1.05);
 }
-
+ 
 .form-container {
     min-height: 80vh;
 }
-
+ 
 .form-box {
     background-color: #1a1a2e;
     padding: 2.5rem;
@@ -200,34 +200,34 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 30px rgba(255, 0, 255, 0.1);
 }
-
+ 
 .form-icon {
     font-size: 3rem;
     color: #ff00ff;
     text-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
     margin-bottom: 1rem;
 }
-
+ 
 .form-control {
     background-color: rgba(15, 15, 27, 0.7);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
-
+ 
 .form-control:focus {
     background-color: rgba(15, 15, 27, 0.9);
     color: #ffffff;
     border-color: #ff00ff;
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3); 
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
 }
-
+ 
 .form-floating > .form-control::placeholder {
     color: transparent;
 }
 .form-floating > label {
     color: #a0a0a0;
 }
-
+ 
 .form-check-input {
     background-color: rgba(15, 15, 27, 0.7);
     border-color: rgba(255, 255, 255, 0.2);
@@ -239,7 +239,7 @@ body {
 .form-check-input:focus {
     box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
 }
-
+ 
 .link-neon {
     color: #ff00ff;
     text-decoration: none;
@@ -251,55 +251,55 @@ body {
     text-decoration: underline;
     text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
 }
-
+ 
 .accordion-custom .accordion-item {
-    background-color: #1a1a2e; 
+    background-color: #1a1a2e;
     border: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 10px;
     border-radius: 8px;
     overflow: hidden;
 }
-
+ 
 .accordion-custom .accordion-button {
     background-color: #1a1a2e;
     color: #ffffff;
     font-weight: 600;
     font-size: 1.1rem;
-    box-shadow: none; 
+    box-shadow: none;
 }
-
+ 
 .accordion-custom .accordion-button:not(.collapsed) {
-    background-color: rgba(255, 0, 255, 0.1); 
+    background-color: rgba(255, 0, 255, 0.1);
     color: #ff00ff;
     box-shadow: none;
 }
-
+ 
 .accordion-custom .accordion-button::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
-
+ 
 .accordion-custom .accordion-button:not(.collapsed)::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ff00ff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3C/svg%3E");
     transform: rotate(-180deg);
 }
-
+ 
 .accordion-custom .accordion-body {
     color: #e0e0e0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-
+ 
 .accordion-custom .accordion-body ul,
 .accordion-custom .accordion-body ol {
     padding-left: 1.2rem;
     margin-top: 10px;
 }
-
+ 
 .table-custom {
     color: #e0e0e0;
     background-color: #1a1a2e;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
+ 
 .table-custom thead th {
     color: #ffffff;
     background-color: #1a1a2e;
@@ -307,14 +307,83 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-
+ 
 .table-custom.table-hover > tbody > tr:hover {
-    background-color: rgba(255, 0, 255, 0.05); 
+    background-color: rgba(255, 0, 255, 0.05);
     color: #ff00ff;
     box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
 }
-
-.table-custom td, 
+ 
+.table-custom td,
 .table-custom th {
     border-color: rgba(255, 255, 255, 0.1);
 }
+ 
+/* Filter Bar (Tombol-tombo
+l) - SUDAH DIUBAH UNTUK <a> */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Agar rapi di HP */
+    gap: 10px;
+}
+ 
+/* Mengubah <button> menjadi <a> */
+.filter-bar a {
+    background-color: transparent;
+    color: #a0a0a0; /* Teks abu-abu (tidak aktif) */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 20px; /* Bentuk pil (pill shape) */
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif; /* Pastikan font seragam */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none; /* [BARU] Hapus garis bawah link */
+}
+
+/* Tata letak dasar */
+.gallery-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Gambar selalu sejajar, ukuran tetap */
+.gallery-card img {
+  width: 100%;
+  height: 260px; /* atur tinggi sesuai selera */
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Konten teks di bawah */
+.gallery-card h5 {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.gallery-card p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+/* Grid rapi dan tengah */
+.row-cols-1.row-cols-sm-2.row-cols-lg-3 > * {
+  display: flex;
+  justify-content: center;
+}
+
