@@ -1,78 +1,236 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biografi aespa</title>
-  <link rel="stylesheet" href="/style/biografi.css">
-  <link rel="stylesheet" href="/style/style.css">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYKROS - æspa Fanbase Homepage</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/index.css">
+    <link rel="stylesheet" href="../style/biografi.css">
 </head>
-<body>
+  <body>
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mySidebar"
+      aria-labelledby="mySidebarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mySidebarLabel">MYKROS MENU</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <a class="nav-link active" href="/index.html">
+              <i class="bi bi-house-door-fill me-2"></i>Home
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="../component/fanclub.html">
+              <i class="bi bi-star-fill me-2"></i>Fanclub
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="../component/biografi.html">
+              <i class="bi bi-people-fill me-2"></i>Biografi
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="../component/diskografi.html">
+              <i class="bi bi-disc-fill me-2"></i>Diskografi
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="../component/galeri.html">
+              <i class="bi bi-images me-2"></i>Galeri
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="../component/jadwal.html">
+              <i class="bi bi-calendar-event-fill me-2"></i>Jadwal
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="../component/prestasi.html">
+              <i class="bi bi-trophy-fill me-2"></i>Prestasi
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="../component/faq.html">
+              <i class="bi bi-question-circle-fill me-2"></i>FAQ
+            </a>
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="../component/about.html">
+              <i class="bi bi-info-circle-fill me-2"></i>About Us
+            </a>
+          </li>
+        </ul>
 
-  <header class="header">
-    <h1>✨ Biografi aespa ✨</h1>
-    <p>Girl group futuristik dari SM Entertainment yang menggabungkan dunia nyata dan virtual</p>
-  </header>
-
-  <section class="about">
-    <img src="../asset/grup mem aespa.jpg" alt="aespa group" class="group-photo">
-    <div class="about-text">
-      <h2>Tentang aespa</h2>
-      <p><b>aespa (에스파)</b> adalah girl group asal Korea Selatan yang dibentuk oleh <b>SM Entertainment</b>. 
-      Grup ini debut pada <b>17 November 2020</b> dengan lagu <b>“Black Mamba”</b>. 
-      Nama aespa berasal dari kombinasi “æ” (avatar experience) dan “aspect”, menggambarkan konsep dunia metaverse dan avatar virtual mereka.</p>
-    </div>
-  </section>
-
-  <section class="members">
-    <h2>Anggota aespa</h2>
-
-    <div class="member-card">
-      <img src="../asset/karina biografi.jpg" alt="Karina">
-      <div class="info">
-        <h3><a style="text-decoration: none;" href="../component/biografikarina.html">Karina (카리나)</a></h3>
-        <p><b>Nama Asli:</b> Yoo Jimin<br>
-        <b>Tanggal Lahir:</b> 11 April 2000<br>
-        <b>Posisi:</b> Leader, Main Dancer, Lead Rapper, Vocalist, Visual</p>
+        <hr />
+        <div class="d-flex flex-column">
+          <a href="../component/signin.html" class="btn btn-outline-light mb-2">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
+          </a>
+          <a href="../component/register.html" class="btn btn-light">
+            <i class="bi bi-person-plus-fill me-1"></i> Register
+          </a>
+        </div>
       </div>
     </div>
+    <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mySidebar"
+          aria-controls="mySidebar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="member-card">
-      <img src="https://i.pinimg.com/736x/4c/07/40/4c0740f44b747444ff4b36f6fdb4437a.jpg" alt="Giselle">
-      <div class="info">
-        <h3><a style="text-decoration: none;" href="../component/biografigisselw.html">Giselle (지젤)</a></h3>
-        <p><b>Nama Asli:</b> Uchinaga Aeri<br>
-        <b>Tanggal Lahir:</b> 30 Oktober 2000<br>
-        <b>Posisi:</b> Main Rapper, Vocalist</p>
+        <a class="navbar-brand fw-bold mx-auto" href="/index.html"> MYKROS </a>
+
+        <div class="d-none d-lg-flex">
+          <a href="../component/signin.html" class="btn btn-nav-signin me-2"
+            >Sign In</a
+          >
+          <a href="../component/register.html" class="btn btn-nav-register"
+            >Register</a
+          >
+        </div>
       </div>
-    </div>
+    </nav>
+    <header class="header">
+      <h1>✨ Biografi aespa ✨</h1>
+      <p>
+        Girl group futuristik dari SM Entertainment yang menggabungkan dunia
+        nyata dan virtual
+      </p>
+    </header>
 
-    <div class="member-card">
-      <img src="https://i.pinimg.com/736x/4d/79/0e/4d790e7f2f19b9e2f73d1425287d2c7b.jpg" alt="Winter">
-      <div class="info">
-        <h3><a href="../component/biografiwinter.html" style="text-decoration: none;">Winter (윈터)</a></h3>
-        <p><b>Nama Asli:</b> Kim Minjeong<br>
-        <b>Tanggal Lahir:</b> 1 Januari 2001<br>
-        <b>Posisi:</b> Lead Vocalist, Lead Dancer, Visual</p>
+    <section class="about">
+      <img
+        src="../asset/grup mem aespa.jpg"
+        alt="aespa group"
+        class="group-photo"
+      />
+      <div class="about-text">
+        <h2>Tentang aespa</h2>
+        <p>
+          <b>aespa (에스파)</b> adalah girl group asal Korea Selatan yang
+          dibentuk oleh <b>SM Entertainment</b>. Grup ini debut pada
+          <b>17 November 2020</b> dengan lagu <b>“Black Mamba”</b>. Nama aespa
+          berasal dari kombinasi “æ” (avatar experience) dan “aspect”,
+          menggambarkan konsep dunia metaverse dan avatar virtual mereka.
+        </p>
       </div>
-    </div>
+    </section>
 
-    <div class="member-card">
-      <img src="https://i.pinimg.com/736x/8b/33/68/8b336819890b68839c12e3b78553b1ea.jpg" alt="NingNing">
-      <div class="info">
-        <h3><a style="text-decoration: none;" href="../component/biografiwinter.html">NingNing (닝닝)</a></h3>
-        <p><b>Nama Asli:</b> Ning Yizhuo<br>
-        <b>Tanggal Lahir:</b> 23 Oktober 2002<br>
-        <b>Posisi:</b> Main Vocalist, Maknae</p>
+    <section class="members">
+      <h2>Anggota aespa</h2>
+
+      <div class="member-card">
+        <img src="../asset/karina biografi.jpg" alt="Karina" />
+        <div class="info">
+          <h3>
+            <a
+              style="text-decoration: none"
+              href="../component/biografikarina.html"
+              >Karina (카리나)</a
+            >
+          </h3>
+          <p>
+            <b>Nama Asli:</b> Yoo Jimin<br />
+            <b>Tanggal Lahir:</b> 11 April 2000<br />
+            <b>Posisi:</b> Leader, Main Dancer, Lead Rapper, Vocalist, Visual
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
 
-  <footer class="footer">
-    <p>© 2025 by MY for aespa | Designed with 💜 by Avrillia</p>
-  </footer>
+      <div class="member-card">
+        <img
+          src="https://i.pinimg.com/736x/4c/07/40/4c0740f44b747444ff4b36f6fdb4437a.jpg"
+          alt="Giselle"
+        />
+        <div class="info">
+          <h3>
+            <a
+              style="text-decoration: none"
+              href="../component/biografigisselw.html"
+              >Giselle (지젤)</a
+            >
+          </h3>
+          <p>
+            <b>Nama Asli:</b> Uchinaga Aeri<br />
+            <b>Tanggal Lahir:</b> 30 Oktober 2000<br />
+            <b>Posisi:</b> Main Rapper, Vocalist
+          </p>
+        </div>
+      </div>
 
-</body>
+      <div class="member-card">
+        <img
+          src="https://i.pinimg.com/736x/4d/79/0e/4d790e7f2f19b9e2f73d1425287d2c7b.jpg"
+          alt="Winter"
+        />
+        <div class="info">
+          <h3>
+            <a
+              href="../component/biografiwinter.html"
+              style="text-decoration: none"
+              >Winter (윈터)</a
+            >
+          </h3>
+          <p>
+            <b>Nama Asli:</b> Kim Minjeong<br />
+            <b>Tanggal Lahir:</b> 1 Januari 2001<br />
+            <b>Posisi:</b> Lead Vocalist, Lead Dancer, Visual
+          </p>
+        </div>
+      </div>
+
+      <div class="member-card">
+        <img
+          src="https://i.pinimg.com/736x/8b/33/68/8b336819890b68839c12e3b78553b1ea.jpg"
+          alt="NingNing"
+        />
+        <div class="info">
+          <h3>
+            <a
+              style="text-decoration: none"
+              href="../component/biografiwinter.html"
+              >NingNing (닝닝)</a
+            >
+          </h3>
+          <p>
+            <b>Nama Asli:</b> Ning Yizhuo<br />
+            <b>Tanggal Lahir:</b> 23 Oktober 2002<br />
+            <b>Posisi:</b> Main Vocalist, Maknae
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container-fluid footer-custom py-4 mt-5">
+      <div class="container text-center">
+        <p>Dibuat oleh Tim Green Flag - Tugas Web Front-End</p>
+        <p>&copy; 2025 MYKROS. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
