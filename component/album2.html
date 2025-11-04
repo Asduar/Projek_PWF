@@ -1,211 +1,145 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rich Man - The 6th Mini Album | MYKROS</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savage - The 1st Mini Album | MYKROS</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    />
+    <link rel="stylesheet" href="../style/style.css"> 
+    <link rel="stylesheet" href="../style/album.css"> 
 
     <style>
-      body {
-        background-color: #000;
-        color: #fff;
-        font-family: "Segoe UI", Roboto, sans-serif;
-      }
-      .navbar-brand {
-        font-size: 20px;
-      }
-
-      .album-header-container {
-        background: linear-gradient(0deg, #000 0%, #171050 100%);
-        padding-top: 50px;
-        padding-bottom: 80px;
-      }
-
-      .album-header {
-        display: flex;
-        align-items: flex-end;
-        padding: 0 50px;
-        gap: 25px;
-      }
-      .album-cover {
-        width: 230px;
-        height: 230px;
-        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
-        border-radius: 5px;
-      }
-      .album-info-detail h5 {
-        font-size: 14px;
-        font-weight: 500;
-        color: #ccc;
-        margin-bottom: 5px;
-        text-transform: uppercase;
-      }
-      .album-info-detail h1 {
-        font-size: 80px;
-        font-weight: 900;
-        line-height: 1;
-      }
-      .album-meta p {
-        font-size: 14px;
-        color: #ccc;
-        margin: 0;
-      }
-
-      .tracklist-container {
-        padding: 50px 50px 80px;
-        background-color: #000;
-      }
-      .tracklist-table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      .tracklist-table th {
-        color: #b3b3b3;
-        font-size: 12px;
-        padding: 10px 0;
-        text-align: left;
-        border-bottom: 1px solid #282828;
-      }
-      .tracklist-table th:first-child {
-        width: 40px;
-        text-align: right;
-        padding-right: 15px;
-      }
-      .tracklist-table td {
-        padding: 10px 0;
-        border-bottom: 1px solid #1a1a1a;
-        font-size: 15px;
-        vertical-align: top;
-      }
-      .track-number {
-        color: #b3b3b3;
-        text-align: right;
-        padding-right: 15px;
-      }
-      .track-duration{
-        color: #b3b3b3;
-        text-align: right;
-    }
-    
-      .track-title strong {
-        display: block;
-        font-weight: 600;
-      }
-      .track-title span {
-        color: #b3b3b3;
-        font-size: 13px;
-      }
-      .track-duration {
-        width: 80px;
-      }
-
-      @media (max-width: 768px) {
-        .album-header {
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          padding: 0 20px;
-          gap: 15px;
+        .album-header-container {
+            /* Gradient Biru Gelap (Savage) ke Hitam */
+            background: linear-gradient(to bottom, #2a2a4a 0%, #0f0f1b 100%);
         }
-        .album-cover {
-          width: 150px;
-          height: 150px;
-        }
-        .album-info-detail h1 {
-          font-size: 48px;
-        }
-        .tracklist-container {
-          padding: 40px 20px 80px;
-        }
-      }
     </style>
-  </head>
+</head>
 
-  <body>
-    <nav class="navbar navbar-dark bg-black sticky-top shadow-sm">
-      <div class="container-fluid">
-        <a class="navbar-brand fw-bold ms-3" href="diskografi.html">
-          <i class="bi bi-arrow-left me-2"></i> KEMBALI
-        </a>
-        <span class="navbar-brand fw-bold mx-auto">MYKROS</span>
-      </div>
-    </nav>
-
-    <div class="album-header-container">
-      <header class="album-header">
-        <img src="../asset/dang.jpg" alt="Rich Man Cover" class="album-cover" />
-
-        <div class="album-info-detail">
-          <h5>EP</h5>
-          <h1>Rich Man - The 6th Mini Album</h1>
-          <div class="album-meta">
-            <p>aespa • 2025 • 6 songs, 19 min 8 sec</p>
-          </div>
+<body>
+    <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar" aria-labelledby="mySidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mySidebarLabel">MYKROS MENU</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-      </header>
+        <div class="offcanvas-body">
+             <ul class="list-unstyled ps-0">
+                <li class="mb-1"><a class="nav-link" href="../index.html"><i class="bi bi-house-door-fill me-2"></i>Home</a></li>
+                <li class="mb-1"><a class="nav-link" href="fanclub.html"><i class="bi bi-star-fill me-2"></i>Fanclub</a></li>
+                <li class="mb-1"><a class="nav-link" href="biografi.html"><i class="bi bi-people-fill me-2"></i>Biografi</a></li>
+                <li class="mb-1"><a class="nav-link active" href="diskografi.html"><i class="bi bi-disc-fill me-2"></i>Diskografi</a></li>
+                <li class="mb-1"><a class="nav-link" href="galeri.html"><i class="bi bi-images me-2"></i>Galeri</a></li>
+                <li class="mb-1"><a class="nav-link" href="jadwal.html"><i class="bi bi-calendar-event-fill me-2"></i>Jadwal</a></li>
+                <li class="mb-1"><a class="nav-link" href="prestasi.html"><i class="bi bi-trophy-fill me-2"></i>Prestasi</a></li>
+                <li class="mb-1"><a class="nav-link" href="faq.html"><i class="bi bi-question-circle-fill me-2"></i>FAQ</a></li>
+                <li class="mb-1"><a class="nav-link" href="about_us.html"><i class="bi bi-info-circle-fill me-2"></i>About Us</a></li>
+            </ul>
+            <hr>
+            <div class="d-flex flex-column">
+                <a href="../signin.html" class="btn btn-outline-light mb-2"><i class="bi bi-box-arrow-in-right me-1"></i> Sign In</a>
+                <a href="../register.html" class="btn btn-light"><i class="bi bi-person-plus-fill me-1"></i> Register</a>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar" aria-controls="mySidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand fw-bold mx-auto" href="../index.html">
+                MYKROS
+            </a>
+            <div class="d-none d-lg-flex">
+                <a href="../signin.html" class="btn btn-nav-signin me-2">Sign In</a>
+                <a href="../register.html" class="btn btn-nav-register">Register</a>
+            </div>
+        </div>
+    </nav>
+    <div class="album-header-container">
+        <header class="album-header container-fluid">
+            <img src="../asset/savage.jpg" alt="Savage Cover" class="album-cover">
+            <div class="album-info-detail">
+                <h5>Mini Album</h5>
+                <h1>Savage</h1>
+                <div class="album-meta">
+                    <p class="mb-0"><span class="artist-thumb"></span> aespa • 2021 • 6 songs, 19 min 44 sec</p>
+                </div>
+            </div>
+        </header>
     </div>
 
-    <main class="tracklist-container">
-      <table class="tracklist-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>JUDUL</th>
-            <th style="text-align: right"><i class="bi bi-clock"></i></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="track-number">1</td>
-            <td class="track-title">
-              <strong>Rich Man</strong><span>aespa</span>
-            </td>
-            <td class="track-duration">3:17</td>
-          </tr>
-          <tr>
-            <td class="track-number">2</td>
-            <td class="track-title">
-              <strong>Drift</strong><span>aespa</span>
-            </td>
-            <td class="track-duration">2:57</td>
-          </tr>
-          <tr>
-            <td class="track-number">3</td>
-            <td class="track-title">
-              <strong>Bubble</strong><span>aespa</span>
-            </td>
-            <td class="track-duration">3:09</td>
-          </tr>
-          <tr>
-            <td class="track-number">4</td>
-            <td class="track-title">
-              <strong>Sweet N Sour</strong><span>aespa</span>
-            </td>
-            <td class="track-duration">3:05</td>
-          </tr>
-          <tr>
-            <td class="track-number">5</td>
-            <td class="track-title"><strong>Mine</strong><span>aespa</span></td>
-            <td class="track-duration">3:25</td>
-          </tr>
-          <tr>
-            <td class="track-number">6</td>
-            <td class="track-title">
-              <strong>A.I. Love</strong><span>aespa</span>
-            </td>
-            <td class="track-duration">3:15</td>
-          </tr>
-        </tbody>
-      </table>
+    <main class="tracklist-container container-fluid">
+        <table class="tracklist-table">
+            <thead>
+                <tr>
+                    <th class="header-number">#</th>
+                    <th class="header-title">TITLE</th>
+                    <th class="header-plays text-end">PLAYS (DUMMY)</th>
+                    <th class="header-duration text-end"><i class="bi bi-clock"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="track-number">1</td>
+                    <td class="track-title">
+                        <span class="d-block song-name">Savage</span>
+                        <span class="d-block artist-name">aespa</span>
+                    </td>
+                    <td class="track-plays text-end">350,123,456</td>
+                    <td class="track-duration text-end">3:58</td>
+                </tr>
+                <tr>
+                    <td class="track-number">2</td>
+                    <td class="track-title">
+                        <span class="d-block song-name">aenergy</span>
+                        <span class="d-block artist-name">aespa</span>
+                    </td>
+                    <td class="track-plays text-end">80,456,789</td>
+                    <td class="track-duration text-end">2:28</td>
+                </tr>
+                <tr>
+                    <td class="track-number">3</td>
+                    <td class="track-title">
+                        <span class="d-block song-name">I'll Make You Cry</span>
+                        <span class="d-block artist-name">aespa</span>
+                    </td>
+                    <td class="track-plays text-end">65,987,123</td>
+                    <td class="track-duration text-end">3:09</td>
+                </tr>
+                <tr>
+                    <td class="track-number">4</td>
+                    <td class="track-title">
+                        <span class="d-block song-name">Lucid Dream</span>
+                        <span class="d-block artist-name">aespa</span>
+                    </td>
+                    <td class="track-plays text-end">72,345,678</td>
+                    <td class="track-duration text-end">3:30</td>
+                </tr>
+                <tr>
+                    <td class="track-number">5</td>
+                    <td class="track-title">
+                        <span class="d-block song-name">YEPPI YEPPI</span>
+                        <span class="d-block artist-name">aespa</span>
+                    </td>
+                    <td class="track-plays text-end">91,789,012</td>
+                    <td class="track-duration text-end">3:04</td>
+                </tr>
+                <tr>
+                    <td class="track-number">6</td>
+                    <td class="track-title">
+                        <span class="d-block song-name">ICONIC</span>
+                        <span class="d-block artist-name">aespa</span>
+                    </td>
+                    <td class="track-plays text-end">68,012,345</td>
+                    <td class="track-duration text-end">3:35</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
-  </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
