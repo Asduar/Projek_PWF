@@ -1,12 +1,5 @@
-/* ============================== */
-/* [GLOBAL-ALBUM] Styling SEMUA Halaman Detail Album */
-/* ============================== */
-
-/* Container header album.
-  Warna akan di-override oleh CSS internal.
-*/
 .album-header-container {
-    background: linear-gradient(180deg, #333 0%, #0f0f1b 100%); /* Warna default */
+    background: linear-gradient(180deg, #333 0%, #0f0f1b 100%);
     padding-top: 50px;
     padding-bottom: 30px; 
 }
@@ -14,9 +7,8 @@
 .album-header {
     display: flex;
     align-items: flex-end;
-    padding: 0 20px;
+    padding: 20px 20px 0 20px;
     gap: 20px;
-    /* Kita gunakan 'container' agar rapi */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -59,16 +51,13 @@
     border-radius: 50%;
     margin-right: 8px;
     vertical-align: middle;
-    /* Ganti 'aespa-mini.jpg' dengan path yang benar jika ada */
-    background-image: url('https://via.placeholder.com/24x24.png?text=æ');
+    background-image: url(/asset/RichmanAl.png);
     background-size: cover;
 }
 
-/* Kontainer Daftar Lagu */
 .tracklist-container {
     padding: 20px 20px 80px;
     background-color: transparent;
-    /* Kita gunakan 'container' agar rapi */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -78,7 +67,6 @@
     border-collapse: collapse;
 }
 
-/* Header Tabel */
 .tracklist-table th {
     color: #b3b3b3;
     font-size: 0.75rem;
@@ -107,7 +95,6 @@
     font-size: 0.9rem;
 }
 
-/* Baris Lagu */
 .tracklist-table td {
     padding: 10px 10px;
     border-bottom: 1px solid #282828;
@@ -120,7 +107,7 @@
     cursor: pointer;
 }
 .tracklist-table tbody tr:hover {
-    background-color: rgba(255, 0, 255, 0.05); /* <-- [PERBAIKAN] Glow neon */
+    background-color: rgba(255, 0, 255, 0.05);
     cursor: pointer;
 }
 .tracklist-table tbody tr:hover .song-name,
@@ -128,10 +115,9 @@
 .tracklist-table tbody tr:hover .track-plays,
 .tracklist-table tbody tr:hover .track-duration,
 .tracklist-table tbody tr:hover .artist-name {
-    color: #ff00ff; /* [PERBAIKAN] Semua teks jadi neon */
+    color: #ff00ff; 
 }
 
-/* Kolom-kolom */
 .track-number {
     width: 40px;
     text-align: right;
@@ -165,7 +151,6 @@
     font-size: 0.85rem;
 }
 
-/* Responsif */
 @media (max-width: 768px) {
     .album-header {
         flex-direction: column;
@@ -188,4 +173,30 @@
     .tracklist-table td.track-number { width: 30px; padding-right: 10px; }
     .track-title .song-name { font-size: 0.85rem; }
     .track-title .artist-name { font-size: 0.75rem; }
+}
+
+.back-button-container {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #0f0f1b; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-to-disco-btn {
+    background-color: #ff00ff;
+    border-color: #ff00ff;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.4); 
+}
+
+.back-to-disco-btn:hover {
+    background-color: #e600e6;
+    border-color: #e600e6;
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.6); 
+    transform: translateY(-2px); 
 }
