@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Grup - MYKROS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../style/style.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      background-color: #0d0d18;
+      color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+      padding-bottom: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    fieldset {
+      border: 2px solid;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 50px;
+      transition: all 0.3s ease;
+    }
+
+    legend {
+      font-size: 1.4rem;
+      font-weight: 600;
+      padding: 0 14px;
+      border-radius: 8px;
+    }
+
+    /* === GRID FOTO === */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 15px;
+      justify-items: center;
+    }
+
+    .photo-upload {
+      width: 230px;
+      height: 340px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-upload:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+    }
+
+    .photo-upload img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid transparent;
+      background-color: #1a1a2e;
+    }
+
+    /* === WHIPLASH FIX === */
+    fieldset.whiplash {
+      border-color: #00e0ff;
+      background-color: rgba(0, 224, 255, 0.08);
+    }
+
+    fieldset.whiplash legend {
+      color: #00ffff;
+    }
+
+    .whiplash .photo-upload {
+      height: 340px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+
+    .whiplash .photo-upload img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border: 3px solid #00e0ff;
+      border-radius: 12px;
+      background-color: #000;
+    }
+
+    /* === WARNA ALBUM === */
+    fieldset.richman {
+      border-color: #c6a4ff;
+      background-color: rgba(198, 164, 255, 0.08);
+    }
+
+    fieldset.richman legend {
+      color: #e0c3ff;
+    }
+
+    .richman .photo-upload img {
+      border-color: #c6a4ff;
+    }
+
+    fieldset.dirtywork {
+      border-color: #b87333;
+      background-color: rgba(184, 115, 51, 0.08);
+    }
+
+    fieldset.dirtywork legend {
+      color: #d79b63;
+    }
+
+    .dirtywork .photo-upload img {
+      border-color: #b87333;
+    }
+
+    fieldset.armagedon {
+      border-color: #00700b;
+      background-color: rgba(0, 112, 11, 0.08);
+    }
+
+    fieldset.armagedon legend {
+      color: #90ee90;
+    }
+
+    .armagedon .photo-upload img {
+      border-color: #00700b;
+    }
+
+    fieldset.drama {
+      border-color: #b30000;
+      background-color: rgba(179, 0, 0, 0.12);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.15);
+    }
+
+    fieldset.drama legend {
+      color: #ff4d4d;
+    }
+
+    .drama .photo-upload img {
+      border-color: #b30000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">MYKROS MENU</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1"><a class="nav-link" href="../index.html"><i class="bi bi-house-door-fill me-2"></i>Home</a>
+        </li>
+        <li class="mb-1"><a class="nav-link" href="fanclub.html"><i class="bi bi-star-fill me-2"></i>Fanclub</a></li>
+        <li class="mb-1"><a class="nav-link" href="biografi.html"><i class="bi bi-people-fill me-2"></i>Biografi</a>
+        </li>
+        <li class="mb-1"><a class="nav-link" href="diskografi.html"><i class="bi bi-disc-fill me-2"></i>Diskografi</a>
+        </li>
+        <li class="mb-1"><a class="nav-link active" href="galeri.html"><i class="bi bi-images me-2"></i>Galeri</a></li>
+        <li class="mb-1"><a class="nav-link" href="jadwal.html"><i class="bi bi-calendar-event-fill me-2"></i>Jadwal</a>
+        </li>
+        <li class="mb-1"><a class="nav-link" href="prestasi.html"><i class="bi bi-trophy-fill me-2"></i>Prestasi</a>
+        </li>
+        <li class="mb-1"><a class="nav-link" href="faq.html"><i class="bi bi-question-circle-fill me-2"></i>FAQ</a></li>
+        <li class="mb-1"><a class="nav-link" href="about_us.html"><i class="bi bi-info-circle-fill me-2"></i>About
+            Us</a></li>
+      </ul>
+      <hr>
+      <div class="d-flex flex-column">
+        <a href="../signin.html" class="btn btn-outline-light mb-2"><i class="bi bi-box-arrow-in-right me-1"></i> Sign
+          In</a>
+        <a href="../register.html" class="btn btn-light"><i class="bi bi-person-plus-fill me-1"></i> Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand fw-bold mx-auto" href="../index.html">MYKROS</a>
+      <div class="d-none d-lg-flex">
+        <a href="../signin.html" class="btn btn-nav-signin me-2">Sign In</a>
+        <a href="../register.html" class="btn btn-nav-register">Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <h1>Galeri Grup Aespa</h1>
+
+  <div class="container">
+
+    <!-- === RICHMAN === -->
+    <fieldset class="richman">
+      <legend>Rich Man</legend>
+      <div class="photo-grid">
+        <div class="photo-upload"><img src="../asset/Media (57).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (58).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/dang.jpg" alt=""
+            style="object-fit: contain; background-color: #000; width: 100%; height: 100%; border-radius: 12px; border: 3px solid #c6a4ff;">
+        </div>
+        <div class="photo-upload"><img src="../asset/Foto Group Richman.png" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (59).jpg" alt=""></div>
+      </div>
+    </fieldset>
+
+    <!-- === DIRTY WORK === -->
+    <fieldset class="dirtywork">
+      <legend>Dirty Work</legend>
+      <div class="photo-grid">
+        <div class="photo-upload"><img src="../asset/Media (53).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (52).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/dirty work.jpg" alt=""
+            style="object-fit: contain; background-color: #000; width: 100%; height: 100%; border-radius: 12px; border: 3px solid #b87333;">
+        </div>
+        <div class="photo-upload"><img src="../asset/Media (55).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (56).jpg" alt=""></div>
+      </div>
+    </fieldset>
+
+    <!-- === WHIPLASH === -->
+    <fieldset class="whiplash">
+      <legend>Whiplash</legend>
+      <div class="photo-grid">
+        <div class="photo-upload"><img src="../asset/Media (66).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (67).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/whiplash.jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (64).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (65).jpg" alt=""></div>
+      </div>
+    </fieldset>
+
+    <!-- === ARMAGEDON === -->
+    <fieldset class="armagedon">
+      <legend>Armagedon</legend>
+      <div class="photo-grid">
+        <div class="photo-upload"><img src="../asset/Media (68).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (71).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/armagedon.jpg" alt=""
+            style="object-fit: contain; background-color: #000; width: 100%; height: 100%; border-radius: 12px; border: 3px solid #00700b;">
+        </div>
+        <div class="photo-upload"><img src="../asset/Media (69).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (70).jpg" alt=""></div>
+      </div>
+    </fieldset>
+
+    <!-- === DRAMA === -->
+    <fieldset class="drama">
+      <legend>Drama</legend>
+      <div class="photo-grid">
+        <div class="photo-upload"><img src="../asset/Media (60).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (61).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/drama.jpg" alt=""
+            style="object-fit: contain; background-color: #000; width: 100%; height: 100%; border-radius: 12px; border: 3px solid #b30000;">
+        </div>
+        <div class="photo-upload"><img src="../asset/Media (62).jpg" alt=""></div>
+        <div class="photo-upload"><img src="../asset/Media (63).jpg" alt=""></div>
+      </div>
+    </fieldset>
+
+  </div>
+
+  <footer class="container-fluid footer-custom py-4 mt-5">
+    <div class="container text-center">
+      <p>Dibuat oleh Tim Green Flag - Tugas Web Front-End</p>
+      <p>&copy; 2025 MYKROS. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
