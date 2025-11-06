@@ -26,10 +26,8 @@
       background-attachment: fixed;
       color: #e0e0e0;
       background: linear-gradient(to top right, black, rgb(255, 191, 152));
-      /* overflow: hidden; */
     }
 
-    /* Container utama kiri-kanan */
     .main-container {
       display: flex;
       flex-direction: row;
@@ -44,7 +42,6 @@
       overflow: hidden;
     }
 
-    /* BAGIAN KIRI (scroll aktif) */
     .left-lyrics-section {
       flex: 2;
       padding: 20px;
@@ -56,10 +53,9 @@
       height: 100%;
     }
 
-    /* BAGIAN KANAN */
     .right-sidebar-section {
       flex: 1;
-      height: calc(100vh - 60px); /* biar pas di layar */
+      height: calc(100vh - 60px);
       box-sizing: border-box;
       padding: 30px;
       display: flex;
@@ -149,8 +145,6 @@
 </head>
 
 <body>
-
-  <!-- Sidebar -->
   <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">MYKROS MENU</h5>
@@ -176,7 +170,6 @@
     </div>
   </div>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar">
@@ -190,14 +183,11 @@
     </div>
   </nav>
 
-
-  <!-- Container kiri-kanan -->
   <div class="main-container">
 
     <div class="left-lyrics-section">
       <h1 class="lyric-title">[Aespa "Dirty Work" 가사]</h1>
       <hr>
-      <!-- lirik yang sudah kamu tulis -->
       <div class="lyric-box">
             <p class="lyric-section">[Verse 1: Karina, Winter, Giselle]</p>
                 <p>World domination, I don't gotta say it<br>
