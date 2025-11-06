@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Karina - MYKROS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../style/style.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap');
+    body {
+      background-color: #0d0d18;
+      color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+      padding-bottom: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    fieldset {
+      border: 2px solid #6c63ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 40px;
+      transition: all 0.3s ease;
+    }
+
+    legend {
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 0 14px;
+      border-radius: 8px;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .photo-upload {
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 2px dashed #6c63ff;
+      border-radius: 10px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .photo-upload input[type="file"] {
+      display: none;
+    }
+
+    .photo-upload i {
+      font-size: 2rem;
+    }
+
+    .photo-upload span {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    /* === ALBUM COLORS === */
+    fieldset.richman {
+      border-color: #c6a4ff;
+      background-color: rgba(198, 164, 255, 0.08);
+    }
+    fieldset.richman legend { color: #e0c3ff; }
+    fieldset.richman .photo-upload { border-color: #c6a4ff; }
+
+    fieldset.dirtywork {
+      border-color: #b87333;
+      background-color: rgba(184, 115, 51, 0.08);
+    }
+    fieldset.dirtywork legend { color: #d79b63; }
+    fieldset.dirtywork .photo-upload { border-color: #b87333; }
+
+    fieldset.whiplash {
+      border-color: #00e0ff;
+      background-color: rgba(0, 224, 255, 0.08);
+    }
+    fieldset.whiplash legend { color: #00ffff; }
+    fieldset.whiplash .photo-upload { border-color: #00e0ff; }
+
+    fieldset.drama {
+      border-color: #b30000;
+      background-color: rgba(179, 0, 0, 0.12);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.15);
+    }
+    fieldset.drama legend { color: #ff4d4d; }
+    fieldset.drama .photo-upload {
+      border-color: #ff4d4d;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+    fieldset.drama .photo-upload:hover {
+      background-color: rgba(255, 0, 0, 0.15);
+    }
+
+    fieldset.blackmamba {
+      border-color: #5a189a;
+      background-color: rgba(60, 0, 90, 0.15);
+      box-shadow: 0 0 12px rgba(100, 0, 150, 0.3);
+    }
+    fieldset.blackmamba legend { color: #d7aefb; }
+    fieldset.blackmamba .photo-upload { border-color: #7b2cbf; }
+
+    .sidebar-custom {
+      background-color: #1b1b2f;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">MYKROS MENU</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1"><a class="nav-link" href="../index.html"><i class="bi bi-house-door-fill me-2"></i>Home</a></li>
+        <li class="mb-1"><a class="nav-link" href="fanclub.html"><i class="bi bi-star-fill me-2"></i>Fanclub</a></li>
+        <li class="mb-1"><a class="nav-link" href="biografi.html"><i class="bi bi-people-fill me-2"></i>Biografi</a></li>
+        <li class="mb-1"><a class="nav-link" href="diskografi.html"><i class="bi bi-disc-fill me-2"></i>Diskografi</a></li>
+        <li class="mb-1"><a class="nav-link active" href="galeri.html"><i class="bi bi-images me-2"></i>Galeri</a></li>
+        <li class="mb-1"><a class="nav-link" href="jadwal.html"><i class="bi bi-calendar-event-fill me-2"></i>Jadwal</a></li>
+        <li class="mb-1"><a class="nav-link" href="prestasi.html"><i class="bi bi-trophy-fill me-2"></i>Prestasi</a></li>
+        <li class="mb-1"><a class="nav-link" href="faq.html"><i class="bi bi-question-circle-fill me-2"></i>FAQ</a></li>
+        <li class="mb-1"><a class="nav-link" href="about_us.html"><i class="bi bi-info-circle-fill me-2"></i>About Us</a></li>
+      </ul>
+      <hr>
+      <div class="d-flex flex-column">
+        <a href="../signin.html" class="btn btn-outline-light mb-2"><i class="bi bi-box-arrow-in-right me-1"></i> Sign In</a>
+        <a href="../register.html" class="btn btn-light"><i class="bi bi-person-plus-fill me-1"></i> Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand fw-bold mx-auto" href="../index.html">MYKROS</a>
+      <div class="d-none d-lg-flex">
+        <a href="../signin.html" class="btn btn-nav-signin me-2">Sign In</a>
+        <a href="../register.html" class="btn btn-nav-register">Register</a>
+      </div>
+    </div>
+  </nav>
+
+  <h1>Galeri Karina</h1>
+
+  <div class="container">
+
+    <!-- === RICHMAN === -->
+    <fieldset class="richman">
+      <legend>Rich Man</legend>
+      <div class="photo-grid">
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+      </div>
+    </fieldset>
+
+    <!-- === DIRTY WORK === -->
+    <fieldset class="dirtywork">
+      <legend>Dirty Work</legend>
+      <div class="photo-grid">
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+      </div>
+    </fieldset>
+
+    <!-- === WHIPLASH === -->
+    <fieldset class="whiplash">
+      <legend>Whiplash</legend>
+      <div class="photo-grid">
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+      </div>
+    </fieldset>
+
+    <!-- === DRAMA === -->
+    <fieldset class="drama">
+      <legend>Drama</legend>
+      <div class="photo-grid">
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+      </div>
+    </fieldset>
+
+    <!-- === BLACK MAMBA === -->
+    <fieldset class="blackmamba">
+      <legend>Black Mamba</legend>
+      <div class="photo-grid">
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+        <label class="photo-upload"><input type="file"><i class="bi bi-plus-circle"></i><span>Upload Foto</span></label>
+      </div>
+    </fieldset>
+
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</body>
+</html>

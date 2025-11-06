@@ -1,43 +1,33 @@
-/* ============================== */
-/* [SPESIFIK] Styling Halaman Jadwal (Tabs) */
-/* ============================== */
-
-/* Wadah navigasi tabs */
 .futuristic-tabs {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Garis bawah abu-abu */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Tombol tab individual */
 .futuristic-tabs .nav-link {
-    border: none; /* Hapus border default Bootstrap */
-    color: #a0a0a0; /* Teks abu-abu saat tidak aktif */
+    border: none;
+    color: #a0a0a0;
     font-weight: 600;
     font-size: 1.1rem;
     padding: 0.75rem 1.5rem;
     transition: all 0.2s ease;
 }
 
-/* Tombol tab saat di-hover (tapi tidak aktif) */
 .futuristic-tabs .nav-link:hover {
     color: #ffffff;
-    background-color: rgba(255, 0, 255, 0.05); /* Sedikit glow magenta */
+    background-color: rgba(255, 0, 255, 0.05);
 }
 
-/* Tombol tab yang SEDANG AKTIF */
 .futuristic-tabs .nav-link.active {
     border: none;
-    background-color: transparent; /* Hapus background default */
-    color: #ff00ff; /* Teks neon magenta */
-    /* Garis bawah neon yang ikonik */
+    background-color: transparent;
+    color: #ff00ff;
     border-bottom: 2px solid #ff00ff;
     text-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
 }
 
-/* Wadah konten tab (agar warnanya konsisten) */
 .tab-content {
-    background-color: #1a1a2e; /* Background gelap (sama dgn bg-section-dark) */
+    background-color: #1a1a2e;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: none; /* Hapus border atas karena sudah ada tabs */
-    border-radius: 0 0 8px 8px; /* Lengkungan di sudut bawah */
+    border-top: none;
+    border-radius: 0 0 8px 8px;
     padding: 1rem;
 }

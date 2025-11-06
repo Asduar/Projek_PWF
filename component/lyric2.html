@@ -8,7 +8,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+  <link rel="icon" href="../asset/logo.png" type="image/png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../style/style.css">
 
@@ -24,12 +24,9 @@
           rgba(245, 241, 222, 0.9) 40%,
           rgba(9, 27, 85, 0.95) 100%);
       overflow: hidden;
-      /* tetap boleh hidden supaya tidak scroll ganda */
       height: 100vh;
     }
 
-
-    /* === MAIN LAYOUT === */
     .main-container {
       display: flex;
       flex-direction: row;
@@ -40,28 +37,21 @@
       margin-top: 0;
       padding: 20px;
       box-sizing: border-box;
-
       overflow: visible;
       gap: 20px;
     }
 
-
-    /* BAGIAN KIRI (LIRIK) */
     .left-lyrics-section {
       flex: 2;
       padding: 20px;
       box-sizing: border-box;
       overflow-y: auto;
-      /* ✅ ini penting */
       text-shadow: 0 0 15px #1f44fb, 0 0 25px rgba(34, 0, 255, 0.7);
       background: rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       height: 100%;
-      /* ✅ tambahkan ini */
     }
 
-
-    /* BAGIAN KANAN (INFO & FOTO) */
     .right-sidebar-section {
       flex: 1;
       height: 100%;
@@ -78,7 +68,6 @@
       color: #333;
     }
 
-    /* Kotak Info (Credits & Album Info) */
     .producer-box {
       background-color: rgba(255, 255, 255, 0.75);
       padding: 20px;
@@ -102,7 +91,6 @@
       color: #333;
     }
 
-    /* GRID FOTO */
     .photo-grid {
       width: 100%;
       display: grid;
@@ -128,9 +116,6 @@
       box-shadow: 0 8px 20px rgba(190, 5, 203, 0.7);
     }
 
-
-
-    /* Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -159,7 +144,6 @@
 </head>
 
 <body>
-  <!-- Sidebar -->
   <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title">MYKROS MENU</h5>
@@ -185,7 +169,6 @@
     </div>
   </div>
 
-  <!-- Navbar -->
   <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar">
@@ -198,7 +181,6 @@
       </div>
     </div>
   </nav>
-  <!-- ISI HALAMAN -->
   <div class="main-container">
     <div class="left-lyrics-section">
       <h1 class="lyric-title">Aespa "Whiplash" 가사</h1>
@@ -328,6 +310,25 @@
         <img src="../asset/Ningning Wp.jpg" alt="Ningning Whiplash">
         <img src="../asset/Whiplashh.jpg" alt="aespa Whiplash">
       </div>
+      <a
+          href="diskografi.html"
+          style="
+            display: inline-block;
+            padding: 10px 25px;
+            border: 3px solid rgb(4, 76, 245);
+            border-radius: 50px;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(40, 91, 194, 0.5);
+            transition: all 0.3s ease;
+            text-align: center;
+          "
+          onmouseover="this.style.backgroundColor='rgba(221, 160, 221, 0.2)'; this.style.boxShadow='0 0 25px rgba(142, 45, 226, 0.8)';"
+          onmouseout="this.style.backgroundColor='transparent'; this.style.boxShadow='0 0 15px rgba(142, 45, 226, 0.5)';"
+        >
+        Kembali ke Diskografi
+        </a>
     </div>
   </div>
 

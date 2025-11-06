@@ -1,365 +1,467 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AESPA – Richman</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../style/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="icon" href="../asset/logo.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="/style/album.css" />
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap");
 
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            color: rgb(255, 255, 255);
-            background: linear-gradient(to bottom left, #8e2de2, #000000);
-            overflow: hidden;
-            /* tetap boleh hidden supaya tidak scroll ganda */
-            height: 100vh;
-        }
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        color: rgb(255, 255, 255);
+        background: linear-gradient(to bottom left, #8e2de2, #000000);
+        overflow: hidden;
+        height: 100vh;
+      }
 
+      .main-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        height: calc(100vh - 60px);
+        margin-top: 0;
+        padding: 20px;
+        box-sizing: border-box;
 
-        /* === MAIN LAYOUT === */
-        .main-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 100%;
-            height: calc(100vh - 60px);
-            margin-top: 0;
-            padding: 20px;
-            box-sizing: border-box;
+        overflow: visible;
+        gap: 20px;
+      }
 
-            overflow: visible;
-            gap: 20px;
-        }
+      .left-lyrics-section {
+        flex: 2;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        text-shadow: 0 0 15px #ff00ff, 0 0 25px rgba(255, 0, 255, 0.7);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        height: 100%;
+      }
 
+      .right-sidebar-section {
+        flex: 1;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border-left: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 12px;
+        color: #333;
+      }
 
-        /* BAGIAN KIRI (LIRIK) */
-        .left-lyrics-section {
-            flex: 2;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-            /* ✅ ini penting */
-            text-shadow: 0 0 15px #ff00ff, 0 0 25px rgba(255, 0, 255, 0.7);
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            height: 100%;
-            /* ✅ tambahkan ini */
-        }
+      .producer-box {
+        background-color: rgba(255, 255, 255, 0.75);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(100, 0, 100, 0.2);
+        font-size: 0.95em;
+        margin-bottom: 20px;
+      }
 
+      .producer-box h4 {
+        margin: 0 0 10px 0;
+        color: #1f44fb;
+        font-size: 1.2em;
+        border-bottom: 2px solid rgba(34, 0, 255, 0.7);
+        padding-bottom: 5px;
+      }
 
-        /* BAGIAN KANAN (INFO & FOTO) */
-        .right-sidebar-section {
-            flex: 1;
-            height: 100%;
-            box-sizing: border-box;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            overflow-y: auto;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border-left: 2px solid rgba(255, 255, 255, 0.4);
-            border-radius: 12px;
-            color: #333;
-        }
+      .producer-box p {
+        margin: 5px 0;
+        line-height: 1.5;
+        color: #333;
+      }
 
-        /* Kotak Info (Credits & Album Info) */
-        .producer-box {
-            background-color: rgba(255, 255, 255, 0.75);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(100, 0, 100, 0.2);
-            font-size: 0.95em;
-            margin-bottom: 20px;
-        }
+      .photo-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        box-sizing: border-box;
+        margin-top: 15px;
+        padding-bottom: 10px;
+      }
 
-        .producer-box h4 {
-            margin: 0 0 10px 0;
-            color: #1f44fb;
-            font-size: 1.2em;
-            border-bottom: 2px solid rgba(34, 0, 255, 0.7);
-            padding-bottom: 5px;
-        }
+      .photo-grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 5px solid white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: 0.3s ease-in-out;
+      }
 
-        .producer-box p {
-            margin: 5px 0;
-            line-height: 1.5;
-            color: #333;
-        }
+      .photo-grid img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(190, 5, 203, 0.7);
+      }
 
-        /* GRID FOTO */
-        .photo-grid {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            box-sizing: border-box;
-            margin-top: 15px;
-            padding-bottom: 10px;
-        }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
 
-        .photo-grid img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: 0.3s ease-in-out;
-        }
+      ::-webkit-scrollbar-thumb {
+        background: #043f6f;
+        border-radius: 4px;
+      }
 
-        .photo-grid img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(190, 5, 203, 0.7);
-        }
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        color: #999;
+        font-size: 0.9em;
+      }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
+      footer a {
+        color: #ffd700;
+        text-decoration: none;
+      }
 
-        ::-webkit-scrollbar-thumb {
-            background: #043f6f;
-            border-radius: 4px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #999;
-            font-size: 0.9em;
-        }
-
-        footer a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
+      footer a:hover {
+        text-decoration: underline;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
-    <!-- Sidebar -->
-  <div class="offcanvas offcanvas-start sidebar-custom" tabindex="-1" id="mySidebar">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title">MYKROS MENU</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="list-unstyled ps-0">
-        <li class="mb-1"><a class="nav-link" href="../index.html"><i class="bi bi-house-door-fill me-2"></i>Home</a></li>
-        <li class="mb-1"><a class="nav-link" href="fanclub.html"><i class="bi bi-star-fill me-2"></i>Fanclub</a></li>
-        <li class="mb-1"><a class="nav-link" href="biografi.html"><i class="bi bi-people-fill me-2"></i>Biografi</a></li>
-        <li class="mb-1"><a class="nav-link" href="diskografi.html"><i class="bi bi-disc-fill me-2"></i>Diskografi</a></li>
-        <li class="mb-1"><a class="nav-link active" href="galeri.html"><i class="bi bi-images me-2"></i>Galeri</a></li>
-        <li class="mb-1"><a class="nav-link" href="jadwal.html"><i class="bi bi-calendar-event-fill me-2"></i>Jadwal</a></li>
-        <li class="mb-1"><a class="nav-link" href="prestasi.html"><i class="bi bi-trophy-fill me-2"></i>Prestasi</a></li>
-        <li class="mb-1"><a class="nav-link" href="faq.html"><i class="bi bi-question-circle-fill me-2"></i>FAQ</a></li>
-        <li class="mb-1"><a class="nav-link" href="about_us.html"><i class="bi bi-info-circle-fill me-2"></i>About Us</a></li>
-      </ul>
-      <hr>
-      <div class="d-flex flex-column">
-        <a href="../signin.html" class="btn btn-outline-light mb-2"><i class="bi bi-box-arrow-in-right me-1"></i> Sign In</a>
-        <a href="../register.html" class="btn btn-light"><i class="bi bi-person-plus-fill me-1"></i> Register</a>
+  <body>
+    <div
+      class="offcanvas offcanvas-start sidebar-custom"
+      tabindex="-1"
+      id="mySidebar"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">MYKROS MENU</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <a class="nav-link" href="../index.html"
+              ><i class="bi bi-house-door-fill me-2"></i>Home</a
+            >
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="fanclub.html"
+              ><i class="bi bi-star-fill me-2"></i>Fanclub</a
+            >
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="biografi.html"
+              ><i class="bi bi-people-fill me-2"></i>Biografi</a
+            >
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="diskografi.html"
+              ><i class="bi bi-disc-fill me-2"></i>Diskografi</a
+            >
+          </li>
+          <li class="mb-1">
+            <a class="nav-link active" href="galeri.html"
+              ><i class="bi bi-images me-2"></i>Galeri</a
+            >
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="jadwal.html"
+              ><i class="bi bi-calendar-event-fill me-2"></i>Jadwal</a
+            >
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="prestasi.html"
+              ><i class="bi bi-trophy-fill me-2"></i>Prestasi</a
+            >
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="faq.html"
+              ><i class="bi bi-question-circle-fill me-2"></i>FAQ</a
+            >
+          </li>
+          <li class="mb-1">
+            <a class="nav-link" href="about_us.html"
+              ><i class="bi bi-info-circle-fill me-2"></i>About Us</a
+            >
+          </li>
+        </ul>
+        <hr />
+        <div class="d-flex flex-column">
+          <a href="../signin.html" class="btn btn-outline-light mb-2"
+            ><i class="bi bi-box-arrow-in-right me-1"></i> Sign In</a
+          >
+          <a href="../register.html" class="btn btn-light"
+            ><i class="bi bi-person-plus-fill me-1"></i> Register</a
+          >
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mySidebar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand fw-bold mx-auto" href="../index.html">MYKROS</a>
-      <div class="d-none d-lg-flex">
-        <a href="../signin.html" class="btn btn-nav-signin me-2">Sign In</a>
-        <a href="../register.html" class="btn btn-nav-register">Register</a>
+    <nav class="navbar navbar-dark navbar-custom sticky-top shadow-sm">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mySidebar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand fw-bold mx-auto" href="../index.html">MYKROS</a>
+        <div class="d-none d-lg-flex">
+          <a href="../signin.html" class="btn btn-nav-signin me-2">Sign In</a>
+          <a href="../register.html" class="btn btn-nav-register">Register</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-    <!-- ISI HALAMAN -->
     <div class="main-container">
-        <div class="left-lyrics-section">
-            <h1 class="lyric-title">Aespa "Richman" 가사</h1>
-            <hr>
-            <div class="lyric-box">
-                <p class="lyric-section">[Intro: Giselle, Winter]</p>
-                <p>My mom said to me<br>
-                    "Find someone who can give you everything"<br>
-                    And I said, "Mom, I already have everything"<br>
-                    I am a rich man, I am a rich man (I am a rich man)</p>
+      <div class="left-lyrics-section">
+        <h1 class="lyric-title">Aespa "Richman" 가사</h1>
+        <hr />
+        <div class="lyric-box">
+          <p class="lyric-section">[Intro: Giselle, Winter]</p>
+          <p>
+            My mom said to me<br />
+            "Find someone who can give you everything"<br />
+            And I said, "Mom, I already have everything"<br />
+            I am a rich man, I am a rich man (I am a rich man)
+          </p>
 
-                <p class="lyric-section">[Chorus: Winter, Ningning]</p>
-                <p>(I'ma carry myself) I am a rich man<br>
-                    (I'ma carry myself) I am a rich man<br>
-                    I'm my own biggest fan, and I'm high in demand<br>
-                    I am a rich man</p>
+          <p class="lyric-section">[Chorus: Winter, Ningning]</p>
+          <p>
+            (I'ma carry myself) I am a rich man<br />
+            (I'ma carry myself) I am a rich man<br />
+            I'm my own biggest fan, and I'm high in demand<br />
+            I am a rich man
+          </p>
 
-                <p class="lyric-section">[Verse 1: Karina, Giselle, Winter]</p>
-                <p>Don't care about what they say<br>
-                    날 밀어 넣고 멋대로 굴 때<br>
-                    내 것을 탐내 see? My name is<br>
-                    Where my name is? (I am a rich man)<br>
-                    That's me, 나는 reckless (Yeah)<br>
-                    굳은 mental 그것쯤 웃네 (What?)<br>
-                    내가 날 이끌어 가, 보여 다음 sign<br>
-                    별거 아냐, exit is my next step</p>
+          <p class="lyric-section">[Verse 1: Karina, Giselle, Winter]</p>
+          <p>
+            Don't care about what they say<br />
+            날 밀어 넣고 멋대로 굴 때<br />
+            내 것을 탐내 see? My name is<br />
+            Where my name is? (I am a rich man)<br />
+            That's me, 나는 reckless (Yeah)<br />
+            굳은 mental 그것쯤 웃네 (What?)<br />
+            내가 날 이끌어 가, 보여 다음 sign<br />
+            별거 아냐, exit is my next step
+          </p>
 
-                <p class="lyric-section">[Pre-Chorus: Ningning, Giselle, Winter, Karina]</p>
-                <p>딴 생각 말고 self-belief<br>
-                    'Cause 그게 훨씬 재미있지<br>
-                    Ooh-woah, oh<br>
-                    I am a rich man<br>
-                    So I am standin', where you lookin'?<br>
-                    맞춘 듯한 my perfect fit<br>
-                    Baby (Hey, hey)<br>
-                    I am a rich man</p>
+          <p class="lyric-section">
+            [Pre-Chorus: Ningning, Giselle, Winter, Karina]
+          </p>
+          <p>
+            딴 생각 말고 self-belief<br />
+            'Cause 그게 훨씬 재미있지<br />
+            Ooh-woah, oh<br />
+            I am a rich man<br />
+            So I am standin', where you lookin'?<br />
+            맞춘 듯한 my perfect fit<br />
+            Baby (Hey, hey)<br />
+            I am a rich man
+          </p>
 
-                <p class="lyric-section">[Chorus: Karina, Giselle, Ningning, Winter]</p>
-                <p>(I'ma carry myself) I am a rich man<br>
-                    (I'ma carry myself) I am a rich man<br>
-                    I'm that one, 난 나로 가득해 by myself<br>
-                    I am a rich man<br>
-                    (I'ma carry myself) I am a rich man (Hey, hey, hey, hey)<br>
-                    (I'ma carry myself) I am a rich man (Hey, hey, hey, hey)<br>
-                    I'm my own biggest fan and I'm high in demand<br>
-                    (Hey, hey) I am a rich man (Rich man)</p>
+          <p class="lyric-section">
+            [Chorus: Karina, Giselle, Ningning, Winter]
+          </p>
+          <p>
+            (I'ma carry myself) I am a rich man<br />
+            (I'ma carry myself) I am a rich man<br />
+            I'm that one, 난 나로 가득해 by myself<br />
+            I am a rich man<br />
+            (I'ma carry myself) I am a rich man (Hey, hey, hey, hey)<br />
+            (I'ma carry myself) I am a rich man (Hey, hey, hey, hey)<br />
+            I'm my own biggest fan and I'm high in demand<br />
+            (Hey, hey) I am a rich man (Rich man)
+          </p>
 
-                <p class="lyric-section">[Post-Chorus: All]</p>
-                <p>(La-la, la-la, la, ah-ah)<br>
-                    I am what I am<br>
-                    (La-la, la-la, la, ah-ah)<br>
-                    I am a rich man<br>
-                    (La-la, la-la, la, ah-ah)<br>
-                    I am what I am<br>
-                    (La-la, la-la, la, ah-ah)<br>
-                    I am a rich man</p>
+          <p class="lyric-section">[Post-Chorus: All]</p>
+          <p>
+            (La-la, la-la, la, ah-ah)<br />
+            I am what I am<br />
+            (La-la, la-la, la, ah-ah)<br />
+            I am a rich man<br />
+            (La-la, la-la, la, ah-ah)<br />
+            I am what I am<br />
+            (La-la, la-la, la, ah-ah)<br />
+            I am a rich man
+          </p>
 
-                <p class="lyric-section">[Verse 2: Ningning, Karina, Giselle, Winter]</p>
-                <p>Don't care about what they say<br>
-                    날 밀어내고 함부로 굴 때 오히려,<br>
-                    okay, see? My name is What my name is<br>
-                    (I am a rich man)<br>
-                    Don't need the money, yeah, I see it In my closet, my ideas<br>
-                    내 말버릇, 내 걸음, 내 이름<br>
-                    You know when I'm serving them looks, I'ma feed 'em</p>
+          <p class="lyric-section">
+            [Verse 2: Ningning, Karina, Giselle, Winter]
+          </p>
+          <p>
+            Don't care about what they say<br />
+            날 밀어내고 함부로 굴 때 오히려,<br />
+            okay, see? My name is What my name is<br />
+            (I am a rich man)<br />
+            Don't need the money, yeah, I see it In my closet, my ideas<br />
+            내 말버릇, 내 걸음, 내 이름<br />
+            You know when I'm serving them looks, I'ma feed 'em
+          </p>
 
-                <p class="lyric-section">[Pre-Chorus: Karina, Winter & Giselle, Ningning, Giselle]</p>
-                <p>딴 생각 말고 self-belief<br>
-                    'Cause 그게 좀 더 재밌잖아 Ooh-woah, oh<br>
-                    I am a rich man<br>
-                    So I am standin', where you lookin'?<br>
-                    맞춘 듯한 my perfect fit<br>
-                    Baby<br>
-                    I am a rich man</p>
+          <p class="lyric-section">
+            [Pre-Chorus: Karina, Winter & Giselle, Ningning, Giselle]
+          </p>
+          <p>
+            딴 생각 말고 self-belief<br />
+            'Cause 그게 좀 더 재밌잖아 Ooh-woah, oh<br />
+            I am a rich man<br />
+            So I am standin', where you lookin'?<br />
+            맞춘 듯한 my perfect fit<br />
+            Baby<br />
+            I am a rich man
+          </p>
 
-                <p class="lyric-section">[Chorus: Giselle, Ningning, Winter, Karina]</p>
-                <p>(I'ma carry myself)<br>
-                    I am a rich man<br>
-                    (I'ma carry myself)<br>
-                    I am a rich man<br>
-                    I'm that one, 난 나로 가득해 by myself<br>
-                    I am a rich man<br>
-                    (I'ma carry myself)<br>
-                    I am a rich man<br>
-                    (I'ma carry myself)<br>
-                    I am a rich man<br>
-                    I'm my own biggest fan and I'm high in demand<br>
-                    (Say, ooh) I am a rich man</p>
+          <p class="lyric-section">
+            [Chorus: Giselle, Ningning, Winter, Karina]
+          </p>
+          <p>
+            (I'ma carry myself)<br />
+            I am a rich man<br />
+            (I'ma carry myself)<br />
+            I am a rich man<br />
+            I'm that one, 난 나로 가득해 by myself<br />
+            I am a rich man<br />
+            (I'ma carry myself)<br />
+            I am a rich man<br />
+            (I'ma carry myself)<br />
+            I am a rich man<br />
+            I'm my own biggest fan and I'm high in demand<br />
+            (Say, ooh) I am a rich man
+          </p>
 
-                <p class="lyric-section">[Verse 3: Karina, Giselle]</p>
-                <p>Twenty four, 모두가 same shade<br>
-                    You already know what the tag say<br>
-                    Make it better on my own, my tag<br>
-                    I won't double back, 흉내 안 내<br>
-                    If you blame it, cameo<br>
-                    I carry the load, run the show<br>
-                    I'm like a diamond ring,<br>
-                    already got my thing<br>
-                    Cannot put a price on it, this is the real deal, yeah</p>
+          <p class="lyric-section">[Verse 3: Karina, Giselle]</p>
+          <p>
+            Twenty four, 모두가 same shade<br />
+            You already know what the tag say<br />
+            Make it better on my own, my tag<br />
+            I won't double back, 흉내 안 내<br />
+            If you blame it, cameo<br />
+            I carry the load, run the show<br />
+            I'm like a diamond ring,<br />
+            already got my thing<br />
+            Cannot put a price on it, this is the real deal, yeah
+          </p>
 
-                <p class="lyric-section">[Interlude: Winter]</p>
-                <p>I am a rich man</p>
+          <p class="lyric-section">[Interlude: Winter]</p>
+          <p>I am a rich man</p>
 
-                <p class="lyric-section">[Chorus: Winter, Karina, Ningning, Giselle]</p>
-                <p>(I'ma carry myself)<br>
-                    I am a rich man<br>
-                    (I'ma carry myself)<br>
-                    I am a rich man<br>
-                    I'm that one, 난 나로 가득해 by myself<br>
-                    (Say, what?) I am a rich man (Hoo)<br>
-                    (I'ma carry myself)<br>
-                    I am a rich man<br>
-                    (Hey, hey, hey, hey)<br>
-                    (I'ma carry myself)<br>
-                    I am a rich man<br>
-                    (Hey, hey, hey, hey)<br>
-                    I'm my own biggest fan and I'm high in demand<br>
-                    (Hey, hey, hey, hey) (Woo)<br>
-                    I am a rich man<br>
-                    (Rich man)</p>
+          <p class="lyric-section">
+            [Chorus: Winter, Karina, Ningning, Giselle]
+          </p>
+          <p>
+            (I'ma carry myself)<br />
+            I am a rich man<br />
+            (I'ma carry myself)<br />
+            I am a rich man<br />
+            I'm that one, 난 나로 가득해 by myself<br />
+            (Say, what?) I am a rich man (Hoo)<br />
+            (I'ma carry myself)<br />
+            I am a rich man<br />
+            (Hey, hey, hey, hey)<br />
+            (I'ma carry myself)<br />
+            I am a rich man<br />
+            (Hey, hey, hey, hey)<br />
+            I'm my own biggest fan and I'm high in demand<br />
+            (Hey, hey, hey, hey) (Woo)<br />
+            I am a rich man<br />
+            (Rich man)
+          </p>
 
-                <p class="lyric-section">[Post-Chorus: (All), Karina, Giselle, Ningning, Winter]</p>
-                <p>(La-la, la-la, la, ah-ah; Hey, hey)<br>
-                    I am what I am<br>
-                    (La-la, la-la, la, ah-ah)<br>
-                    So good, so good, so good<br>
-                    I am a rich man<br>
-                    (La-la, la-la, la, ah-ah; Hey, hey)<br>
-                    I am what I am<br>
-                    (La-la, la-la, la, ah-ah)<br>
-                    I am a rich man</p>
-            </div>
+          <p class="lyric-section">
+            [Post-Chorus: (All), Karina, Giselle, Ningning, Winter]
+          </p>
+          <p>
+            (La-la, la-la, la, ah-ah; Hey, hey)<br />
+            I am what I am<br />
+            (La-la, la-la, la, ah-ah)<br />
+            So good, so good, so good<br />
+            I am a rich man<br />
+            (La-la, la-la, la, ah-ah; Hey, hey)<br />
+            I am what I am<br />
+            (La-la, la-la, la, ah-ah)<br />
+            I am a rich man
+          </p>
+        </div>
+      </div>
+
+      <div class="right-sidebar-section">
+        <div class="producer-box">
+          <h4>Credits ✍️</h4>
+          <p><strong>Main Artist:</strong> Aespa</p>
+          <p><strong>Producer:</strong> Lewis Jankel, Neil Ormandy</p>
+          <p>
+            <strong>Songwriters:</strong> Leslie, Neil Ormandy, MarcLo, Lomax
+            and Rosina, "Soaky Siren" Russell.
+          </p>
+          <p><strong>Composer:</strong> Marcus "MarcLo" Lomax and Rosina</p>
         </div>
 
-        <div class="right-sidebar-section">
-            <div class="producer-box">
-                <h4>Credits ✍️</h4>
-                <p><strong>Main Artist:</strong> Aespa</p>
-                <p><strong>Producer:</strong> Lewis Jankel, Neil Ormandy</p>
-                <p><strong>Songwriters:</strong> Leslie, Neil Ormandy, MarcLo, Lomax and Rosina, "Soaky Siren" Russell.
-                </p>
-                <p><strong>Composer:</strong> Marcus "MarcLo" Lomax and Rosina</p>
-            </div>
-
-            <div class="producer-box">
-                <h4>Album Info 💿</h4>
-                <p><strong>Album:</strong> Whiplash - The 5th Mini Album</p>
-                <p><strong>Track No:</strong> 1</p>
-                <p><strong>Release Date:</strong> 21 Oktober 2024</p>
-                <p><strong>Song Duration:</strong> 3:03</p>
-            </div>
-
-            <div class="photo-grid">
-                <img src="../asset/Foto Group Richman.png" alt="aespa group 1">
-                <img src="../asset/karina RM.png" alt="Karina Rich Man">
-                <img src="../asset/Giselle Rm.png" alt="Giselle Rich Man">
-                <img src="../asset/Winter Rm.png" alt="Winter Rich Man">
-                <img src="../asset/ningning Rm.png" alt="Ningning Rich Man">
-                <img src="../asset/RichmanAl.png" alt="aespa Richman">
-            </div>
+        <div class="producer-box">
+          <h4>Album Info 💿</h4>
+          <p><strong>Album:</strong> Whiplash - The 5th Mini Album</p>
+          <p><strong>Track No:</strong> 1</p>
+          <p><strong>Release Date:</strong> 21 Oktober 2024</p>
+          <p><strong>Song Duration:</strong> 3:03</p>
         </div>
+
+        <div class="photo-grid">
+          <img src="../asset/Foto Group Richman.png" alt="aespa group 1" />
+          <img src="../asset/karina RM.png" alt="Karina Rich Man" />
+          <img src="../asset/Giselle Rm.png" alt="Giselle Rich Man" />
+          <img src="../asset/Winter Rm.png" alt="Winter Rich Man" />
+          <img src="../asset/ningning Rm.png" alt="Ningning Rich Man" />
+          <img src="../asset/RichmanAl.png" alt="aespa Richman" />
+        </div>
+        <br />
+        <a
+          href="diskografi.html"
+          style="
+            display: inline-block;
+            padding: 10px 25px;
+            border: 3px solid plum;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(142, 45, 226, 0.5); /* Efek glow ungu #8e2de2 */
+            transition: all 0.3s ease;
+            text-align: center;
+          "
+          onmouseover="this.style.backgroundColor='rgba(221, 160, 221, 0.2)'; this.style.boxShadow='0 0 25px rgba(142, 45, 226, 0.8)';"
+          onmouseout="this.style.backgroundColor='transparent'; this.style.boxShadow='0 0 15px rgba(142, 45, 226, 0.5)';"
+        >
+        Kembali ke Diskografi
+        </a>
+      </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-
+  </body>
 </html>
